@@ -223,3 +223,11 @@ learned dispatch, contextual output, hard inference).
   300/300) · host 3 seeds 100% exact · gate heads (neural control) excluded from
   certification by design. Training restarts across the ENTIRE ARC-2 program: ZERO.
 - Remaining: ARC-2 manuscript (+ optional real-text trial).
+## PROGRAM CLOSED — ARC-2 FINAL STATUS (cycle 7)
+7 cycles. Victory condition met on both sides: machine 29/29 exact on the frozen
+suite; frontier measured by operator (gemini-3.1-pro 8/19, flash 7/18, neither
+answering T5/T6/T7). P11 closed: four-operation certified hybrid (streaming +, x,
+division; learned big/big division) behind a 9-state certified table router inside
+a ~72k-param RoPE host — 100% exact spans at up to 19x training width, fluency
+preserved, certified elision, multi-seed throughout. Zero training restarts across
+the entire program. Manuscript: PAPER_ARC2.md. Successor items named in §7.

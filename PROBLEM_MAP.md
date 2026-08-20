@@ -113,3 +113,10 @@ real-text trial, manuscript.
 ## CYCLE-7 CONTROL B (host multi-seed)
 Host seeds 1,2: 100% exact on div@150 and dbig 40x35 (3/3 with seed 0). P9 fully
 closed for the hybrid stack. Remaining: ARC-2 manuscript (+ optional real-text).
+
+## FINAL STATUS — ARC-2 CLOSED (cycle 7)
+Victory condition met (machine 29/29; frontier operator-judged). P11 closed.
+All 12 map problems resolved or explicitly scoped out (honesty clause).
+Manuscript: PAPER_ARC2.md. Successors named: real-text hybrid trial, GPU-scale
+LM-integrated hybrid (operator protocol), multi-pass organs for new algorithm
+classes (P4 open-ended).
