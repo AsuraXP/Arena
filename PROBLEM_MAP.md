@@ -103,3 +103,9 @@ one host, one 9-state certified router, HY-KR 100% exact on div/add/mul/dbig at 
 tested width (up to 19x train, incl 40-digit / 35-digit), TF host 0%, neural probe 0%.
 P11 remaining (controls only): gate-head confound, real-text trial, multi-seed host,
 ARC-2 manuscript.
+
+## CYCLE-7 CONTROL A (P11 confound closed)
+L-HEAD-DECOUPLE confirmed: M3's text-CE drift was caused solely by the jointly-
+trained gate head (JOIN 4.08 vs DET 2.65 == NOHD at 19x; all equal in-dist).
+Detached auxiliary heads are free. P11 controls remaining: host multi-seed sweep,
+real-text trial, manuscript.

@@ -195,3 +195,21 @@ learned dispatch, contextual output, hard inference).
   evidence already points to gate-head/multi-organ config), real-text trial,
   multi-seed host, manuscript.
 - Wall 456s, peak RAM 804MB. Artifacts: cycle7g_dbigorgan.py, krgate4_s0.pt.
+## Cycle 7 control A: gate-head confound SOLVED — L-HEAD-DECOUPLE confirmed.
+- Four-arm control on 3-organ streams (TF / JOIN / NOHD / DET), identical data+seeds:
+    w=8   : TF 3.015 · JOIN 3.017 · NOHD 3.018 · DET 3.018   (all equal in-dist)
+    w=150 : TF 2.717 · JOIN 4.084 · NOHD 2.647 · DET 2.647
+- The JOINTLY-trained 6-class gate head (gradients through the shared trunk) alone
+  causes the M3 text-CE drift (4.084 = M3's 4.0-4.5 reproduced); stream composition
+  is innocent (NOHD beats TF at length). DETACHED head (h.detach()) = bit-identical
+  to no-head. Fix is one line; adopted for all future hybrid configs.
+- NEW LAW L-HEAD-DECOUPLE: auxiliary supervision heads sharing an LM trunk's
+  gradients degrade length-extrapolated text quality; gradient-detached auxiliary
+  heads are free. (Micro-scale instance of multi-task interference, but with a
+  clean architectural remedy and a certified-hybrid framing.)
+- Meta-note: first run of the control accidentally detached ALL arms (join==det to
+  3 decimals — the tell); the bug was itself evidence that arm differences come
+  only from head gradients. Fixed; live-gate arm restored; rerun clean.
+- Remaining closure items: host multi-seed sweep (exactness host-independent by
+  construction — router-owned spans; sweep for the record), real-text trial,
+  ARC-2 manuscript.
