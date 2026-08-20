@@ -90,3 +90,9 @@ M4a CLOSED: transcript elision certified (never-cost fluency, ~48% context savin
 hybrid 100%). M4b Phase A CLOSED: big/big division compare-subtract encoding oracle
 511/511 (O(N^2) work via O(N) passes). Open: M4b Phase B (learn tables + mount as 4th
 organ), M3 gate-head drift confound control, multi-seed host, real-text trial.
+
+## CYCLE-7 STATUS UPDATE (P11 milestone 5a)
+M5a CLOSED: big/big division learned per-pass transducers — 300/300 exact across
+8/4..40/35 trained on <=8-digit rows (5.9s). The four-operation arithmetic set is now
+fully learnable-transducer-complete. Open: M5b mount as 4th organ, M3 confound
+control, real-text trial, manuscript.

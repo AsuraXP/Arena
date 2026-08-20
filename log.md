@@ -157,3 +157,19 @@ learned dispatch, contextual output, hard inference).
   <=8-digit N / <=4-digit D), certify at 40/20+, mount as 4th organ (DBIG span syntax)
   behind the router; M3 confound control (gate-head on/off).
 - Wall: M4a 325s, M4b 0.2s. Peak RAM 766MB. Restarts: ZERO (seed 0 first try).
+## Cycle 7 M5a: big/big division LEARNED — per-pass transducer tables CERTIFIED.
+- Decomposition (T3 division of labor: driver iterates, tables learn each pass FST):
+    SUB   (code=(r,d), b) -> b', out=(r-d-b)%10        [borrow chain LSB->MSB]
+    ADD   (code=(r,d), c) -> c', out=(r+d+c)%10        [carry add-back]
+    SHIFT (code, hld)     -> lag-write (hld, d); hld<-r; ENDT flush (aprev pattern)
+  Driver = M4b oracle semantics (rounds, counter, alignment s -> 0, remainder emit).
+- CERTIFIED end-to-end vs python divmod, trained on <=8-digit rows ONLY:
+    8/4: 50/50 · 20/10: 50/50 · 40/20: 50/50 · 40/35: 50/50 · 40/1: 50/50 · 1/1: 50/50
+  (5-40x operand-length generalization; training wall 5.9s; tables ~42k params.)
+- Defect caught at design time this time (the audit law applied prospectively): first
+  draft SHARED (code,b) cells between SUB and ADD -> borrow/carry collision = ambiguous
+  by construction (CE stuck 1.14). Split tables -> crystallized. L-COLLISION now a
+  pre-training design check, not just a post-hoc diagnostic.
+- Artifacts: cycle7f_bigdiv_learn.py, bigdiv_s0.pt. Restarts: ZERO.
+- Next (M5b): mount as organ #4 (DSL2 span syntax, 9-state router), then M3 confound
+  control + real-text trial -> P11 closure + ARC-2 manuscript.
