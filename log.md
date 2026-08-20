@@ -78,3 +78,31 @@ learned dispatch, contextual output, hard inference).
 - Next (M2): marker-free routing — detect unlabeled spans in raw mixed text via a
   certified KR-class gate machine (the gate problem is now precisely a table-learnable
   transducer); mount adder/multiplier organs; big/big division via IFT (stretch).
+## Cycle 7 M2: certified KR router + multi-organ mount — CERTIFIED.
+- Router: 5-state table machine (TEXT/div-q/div-ans/add-q/add-ans), learned by direct
+  supervision, crystallized deterministically (L-DIRECT-GRADIENT; seeds 0,1,2 all
+  zero-error). CERTIFIED 65230/65230 routing decisions incl. 150-digit streams.
+- Organs mounted: division (frozen div_t7.pt, remount 300/300) + NEW streaming adder
+  (LSB pair tables, trained <=4 digits in seconds, certified 200/200 at 40-100-digit
+  carry chains — C2's L-ENCODING result reproduced in streaming mount form).
+- End-to-end (marker-free in-band syntax "/d=" and "+pairs=", distractor digit runs in
+  text): HY-KR = 100% exact on BOTH organs at operand widths 8/40/100/150 (19x train);
+  plain host (TF-FULL) = 0% at every width; text CE parity held (2.85-3.52 band both arms).
+- ABLATION (the point of M2): neural-probe gate = 100% in-dist but 0% at >=40 (first
+  boundary decision collapses under length extrapolation). Certified table router holds
+  by construction. L-GATE-EXTENT extended: boundary decisions, not just extent, must be
+  machine-owned under extrapolation.
+- Defects found & fixed this milestone (all caught by oracle/audit gates, zero training
+  restarts): (1) mount violated L-DETERMINISM(a) old-state indexing (22/300 instantly);
+  (2) remainder>=10 encoded as single token = collision with span-openers (L-ENCODING at
+  mount time; fixed: %02d two-token remainder); (3) data-gen cls length bug (distractor
+  run shorter than drawn length -> global +1 class shift; found by index-collision audit
+  showing 6 phantom 'ambiguous' cells); (4) certification harness off-by-one (gate was
+  correct; harness compared decision-after-k+1 vs class-k+1) + Ts-table audit added +
+  cert condition wrongly folded the control arm's misses. Audit protocol now covers BOTH
+  tables (Th outputs + Ts transitions) permanently.
+- Wall 360s, peak RAM 782MB (<2GB charter), 2 CPUs. Artifacts: cycle7b_krgate.py,
+  krgate_s0.pt, addorgan_s0.pt, hybrid_host_s0.pt (M1).
+- Next: M3 — mount multiplier organ (ift_t3.pt, iterated passes) for O(N^2)-work spans;
+  big/big division via IFT compare-subtract (stretch); 4-op calculator = full T5-style
+  dispatch inside a token host. Then P11 closes.

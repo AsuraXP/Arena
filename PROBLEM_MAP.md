@@ -72,5 +72,7 @@ P11 (LM-host hybrid): MOUNT DEMONSTRATED — frozen certified division organ ins
 tiny RoPE host over mixed text streams: 100% exact spans at 19x training length where
 the plain host collapses (0-10%); text fluency unharmed (CE parity). Router protocol
 law L-GATE-EXTENT: organ must self-terminate; per-token neural gates lose answer
-extent at length (75.9% acc @19x). Open: marker-free span detection (KR gate, M2),
-adder/multiplier organ mounts, big/big division via IFT, multi-seed.
+extent at length (75.9% acc @19x). M2 CLOSED: certified KR router (65230/65230, 3 seeds zero-error) + two organs
+(division + streaming adder) mounted marker-free; HY-KR 100% exact at 19x where plain
+host = 0% and neural-probe gate = 0% at >=5x. Remaining: multiplier organ mount (M3),
+big/big division via IFT, multi-seed host, real-text corpus trial.
