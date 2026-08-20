@@ -66,3 +66,11 @@ Arithmetic set COMPLETE on the substrate family: + (KR stream), x (iterated IFT)
 parity, state-chains, sorting. Suite 29/29 machine-side; ~1.7M params total across
 all seven machines; total training wall-clock across the entire program: <5 min.
 Open: P11 (LM-host hybrid), big/big division, operator's frontier column.
+
+## CYCLE-7 STATUS UPDATE (P11 milestone 1)
+P11 (LM-host hybrid): MOUNT DEMONSTRATED — frozen certified division organ inside a
+tiny RoPE host over mixed text streams: 100% exact spans at 19x training length where
+the plain host collapses (0-10%); text fluency unharmed (CE parity). Router protocol
+law L-GATE-EXTENT: organ must self-terminate; per-token neural gates lose answer
+extent at length (75.9% acc @19x). Open: marker-free span detection (KR gate, M2),
+adder/multiplier organ mounts, big/big division via IFT, multi-seed.

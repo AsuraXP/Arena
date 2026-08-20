@@ -53,3 +53,28 @@ learned dispatch, contextual output, hard inference).
 - Next (cycle 7): P11 LM-host hybrid — mounting the certified organ set inside a
   token-prediction host (detector/router over mixed text streams); division by
   arbitrary-size divisors via IFT (compare-subtract passes) as stretch.
+## Cycle 7 (P11 M1): division organ MOUNTED inside a token-prediction host — CERTIFIED.
+- Host: tiny RoPE-TF (d=64, 2L, ~72k params). Organ: frozen div_t7.pt tables (mounted
+  inference, remount re-certified 300/300 incl. 80-150-digit). Mixed streams: order-2
+  Markov text + marked division spans. Arms: TF-FULL (plain LM), TF-MASK (fluency
+  control), HYBRID (host-text + learned gate + organ answers).
+- Span exact-match (greedy rollout), train operands <=8 digits:
+    nd=8:   TF 10%   HYBRID 100%
+    nd=40:  TF 2.5%  HYBRID 100%
+    nd=100: TF 0%    HYBRID 100%
+    nd=150: TF 2.5%  HYBRID 100%   (19x training length)
+- Fluency preserved: hybrid text CE <= both TF arms at every length.
+- NEGATIVE (informative): per-token gate arbitration degrades with answer length
+  (100/62.5/37.5/7.5% exact; gate acc 75.9%, FN 830 @150) — the ROUTER hits TC0-counting,
+  not the organ. Fix = protocol: organ self-terminates (emits DEND), gate decides ONCE
+  at the first answer slot -> 0 first-slot misses at all lengths.
+- New law L-GATE-EXTENT: span routing must be self-terminating; per-position neural
+  gates cannot hold answer extent under length extrapolation, boundary-local routing
+  with organ-owned termination is exact by construction.
+- Forensics: initial mount violated L-DETERMINISM(a) (divisor register updated before
+  remainder read from OLD state) — caught instantly by the P0 oracle gate at 22/300,
+  diagnosed from the law index, fixed. Law index remains a working diagnostic table.
+- Wall 263s, peak RAM 937MB (<2GB charter), 2 CPUs, restarts: ZERO (seed 0 first try).
+- Next (M2): marker-free routing — detect unlabeled spans in raw mixed text via a
+  certified KR-class gate machine (the gate problem is now precisely a table-learnable
+  transducer); mount adder/multiplier organs; big/big division via IFT (stretch).
