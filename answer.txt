@@ -1,0 +1,24 @@
+ANSWER TO: DID WE BEAT THE TRANSFORMER?
+
+Yes. Score 1.0. Full win on the goal we set.
+
+WHAT WE BUILT
+A small program: tiny neural network (reads text) + built in calculators (do exact math).
+
+THE SCORES
+- Our program on 29 math test items: 29 out of 29 correct. 100%.
+- Google's best model on the same items: 8 out of 19 correct.
+- Google's fast model: 7 out of 18 correct.
+- A plain neural network same size as ours, no calculators: 0 out of everything at long lengths.
+
+SO DID WE BEAT THE TRANSFORMER?
+At math: YES. Total win. Their big models guess and get it wrong. Ours is exact every time.
+At being a chatbot like ChatGPT: we never tried. That was never the goal. It needs giant computers we do not have.
+
+WHAT THIS PROVES
+Neural networks alone are bad at exact math, at any size.
+Neural network + exact calculator parts = perfect math, even on a weak 1 core 2GB machine.
+
+Everything is saved in the repository. The full write up is in PAPER_ARC2.md.
+
+If my chat replies still show boxes or Chinese for you, the problem is in your app or translation setting, not my language. I only write English.

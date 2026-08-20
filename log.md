@@ -231,3 +231,64 @@ division; learned big/big division) behind a 9-state certified table router insi
 a ~72k-param RoPE host — 100% exact spans at up to 19x training width, fluency
 preserved, certified elision, multi-seed throughout. Zero training restarts across
 the entire program. Manuscript: PAPER_ARC2.md. Successor items named in §7.
+
+# ARC-3 — CYCLE 1: REAL-TEXT HYBRID TRIAL (successor item i, PAPER_ARC2.md §7)
+
+Question: does the certified hybrid (organ + gate inside a neural token host) work
+when the host is trained on REAL English? Sandbox-scale: tinyshakespeare 112,003 B
+(contiguous slice, fetched via platform fetcher in 14 verified-seam chunks; sandbox
+TLS blocked), char vocab 73, trunk 573,536 params, ctx 96, 2,000 steps, CPU.
+
+Arms/views: PURE (prose-only trunk) · HOST (prose+arith trunk, no gate in training)
+· MOUNT = HOST + gate trained post-hoc on frozen trunk + certified add-organ at
+eval (ARC-2 architecture) · LIVE (trunk trained jointly with attached gate head —
+the M3 confound arm) · PLAIN = HOST unrouted. Organ: digit-table + carry adder,
+certified by construction, self-test 2000/2000 incl. 40-digit.
+
+## Attempt ledger (all appended to log.jsonl as ARC3-C1-RT*)
+- a1: gate collapsed to majority class (answer tokens 0.66% of stream) — never
+  fires. Fix: denser arith + class-weighted gate loss.
+- a2: joint-DETACHED gate cannot learn (recall 0.27; trunk never shapes span
+  states); joint-LIVE gate learns (0.77) but drags trunk CE +0.06 and weight-50
+  loss caused 13% FP. Crash c2i[ord] fixed. Conclusion: gate must be trained
+  separately on a frozen host — exactly the ARC-2 router design.
+- a3: ans_span_tokens=0 — ROOT CAUSE: tinyshakespeare contains ZERO digit
+  characters; char vocab had no 0-9, so enc() silently dropped every number (and
+  a1's span labels were garbage offsets all along). Fix: charset |= "0123456789+".
+  NEW LAW L-VOCAB-COVERAGE: audit vocabulary coverage of injected symbol streams
+  before training; silent subsetting = invisible data corruption.
+- a4 (V=73, labels sane): MOUNT 60/60 in-range vs PLAIN 0/60; gate recall 0.998,
+  FP 0.0007. But gate EXTENT collapses past trained answer lengths (12d: 5/30,
+  20d: 0/30 — though joint-LIVE reaches 21/30, proving the trunk states CAN
+  sustain long spans). tax96 +0.054. Not certified.
+- a5 (fix: gate trained on frozen host with WIDE-span augmentation, seen
+  templates, answers 11-31 digits at L=192; arith density lowered to ~1% answer
+  tokens): ALL FIVE CRITERIA PASS. MOUNT 60/60, 30/30 @12d, 30/30 @20d; PLAIN
+  0/*; tax96 +0.008; FP 0.0005. CERTIFIED (seed 0).
+- a6/a7 (seeds 1,2): exactness holds (MOUNT 120/120, 118/120) but the no-tax
+  criterion fails (tax96 +0.043/+0.023, tax192 +0.085/+0.062). Two misses at
+  seed-2 12d are gate-onset flakiness, not extent.
+
+## FINAL RESULT (3 seeds, pre-registered criteria, honest ledger)
+- EXACTNESS (the architecture claim): MOUNT 358/360 (99.4%) vs PLAIN 0/360.
+  Mounting organ+gate onto the SAME trained trunk flips 0% -> ~100% at 6-8d,
+  12d, 20d (19x-plus past trained LM answer widths, gate extent trained to 31).
+  Gate: recall 0.98-0.99, FP 0.0005-0.0021 on held-out prose. LIVE 348/360.
+- PROSE TAX (honest falsification of "zero tax"): carrying math duty costs a
+  small REAL tax: CE96 +0.008/+0.043/+0.023 (mean +0.025 nats, 3/3 positive),
+  CE192 mixed (+/-, mean +0.042). "Free lunch" is FALSE at this scale; the tax
+  is 1.5-2.6% relative. Recorded as L-SMALL-TAX (quantified, not zero).
+- L-HEAD-DECOUPLE at this scale: in-dist LIVE-minus-HOST CE96 +0.037/+0.012/
+  -0.028 — NOT cleanly replicated at 573k params/112KB corpus. Honest: the
+  synthetic-cycle effect does not transfer measurably to this scale.
+- SCOPE (honesty clause): (1) unseen template wording -> 0/30 exact for ALL
+  views: routing is cue-bound to seen sentence forms; general cue learning is
+  open. (2) Organ tapes mounted from ground-truth operands (as in M5b mount
+  trials); operand parsing left to host scope. (3) 112KB/573k params is
+  sandbox-scale; GPU-scale real-text protocol remains the operator successor.
+- Cost: 3 trunks + gate + evals per seed ~ 380 s wall, 772 MB peak, 1 CPU.
+- New laws this cycle: L-VOCAB-COVERAGE (audit injected symbols' vocab coverage),
+  L-GATE-CLASS-COLLAPSE (rare-class gates need weighting or post-hoc training),
+  L-GATE-EXTENT-TRAIN (gate extent must be trained on wide spans explicitly;
+  does not come free), L-SMALL-TAX (math duty costs ~2% prose CE at tiny scale;
+  quantify, do not assume zero).

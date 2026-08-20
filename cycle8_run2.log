@@ -1,0 +1,65 @@
+[setup] corpus=112003B vocab=61 seed=0
+[organ] certified-by-construction adder self-test 2000/2000
+[stream] mix=111078 tokens, arith_sentences=320, ans_span_tokens=1752 (pos-rate 0.0157, gate-weight ADD=50.0); pure=100802
+[PROBE] step 0/40 lm=4.1179 gate=0.7448 (0s)
+[PROBE] TRAIN DONE steps=40 lm=3.4120 gate=0.6918 wall=2s
+[calib] 0.050s/step -> steps=2000 per arm
+[PURE] step 0/2000 lm=4.1264 (no gate) (0s)
+[PURE] step 200/2000 lm=2.3813 (no gate) (10s)
+[PURE] step 400/2000 lm=1.9459 (no gate) (20s)
+[PURE] step 600/2000 lm=1.8526 (no gate) (29s)
+[PURE] step 800/2000 lm=1.7095 (no gate) (39s)
+[PURE] step 1000/2000 lm=1.5392 (no gate) (49s)
+[PURE] step 1200/2000 lm=1.4064 (no gate) (59s)
+[PURE] step 1400/2000 lm=1.2534 (no gate) (69s)
+[PURE] step 1600/2000 lm=1.2735 (no gate) (79s)
+[PURE] step 1800/2000 lm=1.1899 (no gate) (89s)
+[PURE] TRAIN DONE steps=2000 lm=1.3110 wall=99s
+[HOST] step 0/2000 lm=4.1179 gate=0.7448 (0s)
+[HOST] step 200/2000 lm=2.4126 gate=0.6143 (11s)
+[HOST] step 400/2000 lm=2.0124 gate=0.5698 (22s)
+[HOST] step 600/2000 lm=1.8609 gate=0.6684 (32s)
+[HOST] step 800/2000 lm=1.4472 gate=0.7109 (42s)
+[HOST] step 1000/2000 lm=1.4398 gate=0.5631 (53s)
+[HOST] step 1200/2000 lm=1.4050 gate=0.6424 (64s)
+[HOST] step 1400/2000 lm=1.2871 gate=0.6478 (74s)
+[HOST] step 1600/2000 lm=1.2407 gate=0.6215 (84s)
+[HOST] step 1800/2000 lm=1.2779 gate=0.6673 (94s)
+[HOST] TRAIN DONE steps=2000 lm=1.2078 gate=0.6952 wall=103s
+[LIVE] step 0/2000 lm=4.1179 gate=0.7448 (0s)
+[LIVE] step 200/2000 lm=2.4667 gate=0.6168 (10s)
+[LIVE] step 400/2000 lm=2.1913 gate=0.5655 (20s)
+[LIVE] step 600/2000 lm=1.9883 gate=0.6785 (30s)
+[LIVE] step 800/2000 lm=1.5584 gate=0.6807 (40s)
+[LIVE] step 1000/2000 lm=1.5622 gate=0.4566 (50s)
+[LIVE] step 1200/2000 lm=1.5837 gate=0.5211 (60s)
+[LIVE] step 1400/2000 lm=1.4532 gate=0.5040 (70s)
+[LIVE] step 1600/2000 lm=1.4048 gate=0.3851 (80s)
+[LIVE] step 1800/2000 lm=1.4946 gate=0.3834 (90s)
+[LIVE] TRAIN DONE steps=2000 lm=1.3885 gate=0.4095 wall=100s
+
+===== PROSE QUALITY (held-out real text, CE nats/token) =====
+[PURE] CE@96=1.6312  CE@192=2.8373
+[HOST] CE@96=1.6495  CE@192=2.7659
+[LIVE] CE@96=1.7119  CE@192=2.6023
+
+===== GATE DIAG (teacher-forced on train windows) =====
+[HOST] in-span recall=0.268 onset recall=0.229
+[LIVE] in-span recall=0.765 onset recall=0.706
+
+===== GATE FALSE POSITIVES ON PROSE =====
+[HOST] FP-rate=0.12737
+[LIVE] FP-rate=0.13930
+
+===== ARITHMETIC EXACTNESS (greedy; hybrid = organ override on gate) =====
+[inrange_seen] PLAIN: 0/60 exact  (full-span gate fire 0/60)
+Traceback (most recent call last):
+  File "/home/user/Arena/cycle8_realtxt.py", line 435, in <module>
+    main()
+  File "/home/user/Arena/cycle8_realtxt.py", line 401, in main
+    ex, gon = eval_arith(m, g, routed, tlist, ws, n)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Arena/cycle8_realtxt.py", line 296, in eval_arith
+    nxt = c2i[ord(d)]
+          ~~~^^^^^^^^
+KeyError: 51

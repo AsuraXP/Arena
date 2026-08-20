@@ -1,0 +1,73 @@
+[setup] corpus=112003B vocab=73 seed=2
+[organ] certified-by-construction adder self-test 2000/2000
+[stream] mix=109098 tokens, arith_sentences=171, ans_span_tokens=1069; pure=100802
+[calib] 0.052s/step -> steps=2000 per trunk
+[PURE] step 0/2000 lm=4.2505 (0s)
+[PURE] step 400/2000 lm=2.1106 (21s)
+[PURE] step 800/2000 lm=1.7282 (42s)
+[PURE] step 1200/2000 lm=1.4924 (63s)
+[PURE] step 1600/2000 lm=1.3336 (84s)
+[PURE] step 1999/2000 lm=1.3475 (105s)
+[PURE] TRAIN DONE lm=1.3475 wall=105s
+[HOST] step 0/2000 lm=4.2421 (0s)
+[HOST] step 400/2000 lm=2.1933 (21s)
+[HOST] step 800/2000 lm=1.8452 (42s)
+[HOST] step 1200/2000 lm=1.4817 (63s)
+[HOST] step 1600/2000 lm=1.3012 (84s)
+[HOST] step 1999/2000 lm=1.3557 (105s)
+[HOST] TRAIN DONE lm=1.3557 wall=105s
+[LIVE] step 0/2000 lm=4.2421 (0s)
+[LIVE] step 400/2000 lm=2.2439 (24s)
+[LIVE] step 800/2000 lm=1.8717 (46s)
+[LIVE] step 1200/2000 lm=1.5123 (67s)
+[LIVE] step 1600/2000 lm=1.3611 (88s)
+[LIVE] step 1999/2000 lm=1.3719 (109s)
+[LIVE] TRAIN DONE lm=1.3719 wall=109s
+[MOUNT-GATE] step 0/1500 weighted_gate_ce=0.7240 (0s)
+[MOUNT-GATE] step 300/1500 weighted_gate_ce=0.0410 (9s)
+[MOUNT-GATE] step 600/1500 weighted_gate_ce=0.0462 (18s)
+[MOUNT-GATE] step 900/1500 weighted_gate_ce=0.0430 (27s)
+[MOUNT-GATE] step 1200/1500 weighted_gate_ce=0.0284 (36s)
+[MOUNT-GATE] step 1499/1500 weighted_gate_ce=0.0305 (45s)
+[MOUNT-GATE] GATE TRAIN DONE wall=45s
+
+===== PROSE QUALITY (held-out real text, CE nats/token) =====
+[PURE] CE@96=1.6184  CE@192=2.8217
+[HOST] CE@96=1.6417  CE@192=2.8840
+[LIVE] CE@96=1.6136  CE@192=2.7582
+
+===== GATE DIAG (teacher-forced, mix-stream windows) =====
+[MOUNT] in-span recall=0.993 onset recall=0.956 prose FP-rate=0.00070
+[LIVE] in-span recall=0.993 onset recall=0.956 prose FP-rate=0.00035
+
+===== ARITHMETIC EXACTNESS (greedy; hybrid = organ override on gate) =====
+[inrange_seen] PLAIN: 0/60 exact  (full-span gate fire 0/60)
+[inrange_seen] MOUNT: 60/60 exact  (full-span gate fire 60/60)
+[inrange_seen] LIVE: 60/60 exact  (full-span gate fire 60/60)
+[extrap12_seen] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[extrap12_seen] MOUNT: 28/30 exact  (full-span gate fire 28/30)
+[extrap12_seen] LIVE: 30/30 exact  (full-span gate fire 30/30)
+[extrap20_seen] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_seen] MOUNT: 30/30 exact  (full-span gate fire 30/30)
+[extrap20_seen] LIVE: 30/30 exact  (full-span gate fire 30/30)
+[inrange_heldout_templ] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[inrange_heldout_templ] MOUNT: 0/30 exact  (full-span gate fire 0/30)
+[inrange_heldout_templ] LIVE: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_heldout_templ] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_heldout_templ] MOUNT: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_heldout_templ] LIVE: 0/30 exact  (full-span gate fire 0/30)
+
+===== VERDICT =====
+{
+  "c1_exact_inrange": true,
+  "c2_exact_extrap": false,
+  "c3_plain_fails": true,
+  "c4_no_prose_tax": false,
+  "tax96": 0.02330816007915293,
+  "tax192": 0.06221738965099366,
+  "c5_gate_fp": true,
+  "live_minus_mount_ce96": -0.028159734625565314,
+  "live_minus_mount_ce192": -0.12572538685424162,
+  "CERTIFIED": false
+}
+[done] wall=378s peak_ram=771.4MB

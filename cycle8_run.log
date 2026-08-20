@@ -1,0 +1,79 @@
+[setup] corpus=112003B vocab=61 seed=0
+[organ] certified-by-construction adder self-test 2000/2000
+[stream] mix=104706 tokens, arith_sentences=126, ans_span_tokens=687; pure=100802
+[PROBE] step 0/40 lm=4.1188 gate=0.5357 (0s)
+[PROBE] TRAIN DONE steps=40 lm=3.3612 gate=0.0406 wall=2s
+[calib] 0.055s/step -> steps=2000 per arm
+[PURE] step 0/2000 lm=4.1264 (no gate) (0s)
+[PURE] step 200/2000 lm=2.3813 (no gate) (10s)
+[PURE] step 400/2000 lm=1.9459 (no gate) (21s)
+[PURE] step 600/2000 lm=1.8526 (no gate) (31s)
+[PURE] step 800/2000 lm=1.7095 (no gate) (43s)
+[PURE] step 1000/2000 lm=1.5392 (no gate) (52s)
+[PURE] step 1200/2000 lm=1.4064 (no gate) (63s)
+[PURE] step 1400/2000 lm=1.2534 (no gate) (73s)
+[PURE] step 1600/2000 lm=1.2735 (no gate) (83s)
+[PURE] step 1800/2000 lm=1.1899 (no gate) (93s)
+[PURE] TRAIN DONE steps=2000 lm=1.3110 wall=104s
+[HOST] step 0/2000 lm=4.1188 gate=0.5357 (0s)
+[HOST] step 200/2000 lm=2.4367 gate=0.0059 (11s)
+[HOST] step 400/2000 lm=2.0065 gate=0.0766 (21s)
+[HOST] step 600/2000 lm=1.7847 gate=0.0236 (31s)
+[HOST] step 800/2000 lm=1.5614 gate=0.0525 (42s)
+[HOST] step 1000/2000 lm=1.4375 gate=0.0430 (52s)
+[HOST] step 1200/2000 lm=1.4086 gate=0.0249 (62s)
+[HOST] step 1400/2000 lm=1.3009 gate=0.0254 (72s)
+[HOST] step 1600/2000 lm=1.4080 gate=0.0071 (83s)
+[HOST] step 1800/2000 lm=1.2957 gate=0.0294 (95s)
+[HOST] TRAIN DONE steps=2000 lm=1.1877 gate=0.0855 wall=106s
+[LIVE] step 0/2000 lm=4.1188 gate=0.5357 (0s)
+[LIVE] step 200/2000 lm=2.4416 gate=0.0062 (11s)
+[LIVE] step 400/2000 lm=2.0527 gate=0.0751 (21s)
+[LIVE] step 600/2000 lm=1.7972 gate=0.0255 (31s)
+[LIVE] step 800/2000 lm=1.5961 gate=0.0532 (41s)
+[LIVE] step 1000/2000 lm=1.4748 gate=0.0406 (52s)
+[LIVE] step 1200/2000 lm=1.4353 gate=0.0258 (63s)
+[LIVE] step 1400/2000 lm=1.3087 gate=0.0239 (73s)
+[LIVE] step 1600/2000 lm=1.3923 gate=0.0056 (84s)
+[LIVE] step 1800/2000 lm=1.3186 gate=0.0280 (94s)
+[LIVE] TRAIN DONE steps=2000 lm=1.2045 gate=0.0710 wall=105s
+
+===== PROSE QUALITY (held-out real text, CE nats/token) =====
+[PURE] CE@96=1.6312  CE@192=2.8373
+[HOST] CE@96=1.6557  CE@192=2.7758
+[LIVE] CE@96=1.6571  CE@192=2.7602
+
+===== GATE FALSE POSITIVES ON PROSE =====
+[HOST] FP-rate=0.00000
+[LIVE] FP-rate=0.00000
+
+===== ARITHMETIC EXACTNESS (greedy; hybrid = organ override on gate) =====
+[inrange_seen] PLAIN: 0/60 exact  (full-span gate fire 0/60)
+[inrange_seen] HYB-DET: 0/60 exact  (full-span gate fire 0/60)
+[inrange_seen] HYB-LIVE: 0/60 exact  (full-span gate fire 0/60)
+[extrap12_seen] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[extrap12_seen] HYB-DET: 0/30 exact  (full-span gate fire 0/30)
+[extrap12_seen] HYB-LIVE: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_seen] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_seen] HYB-DET: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_seen] HYB-LIVE: 0/30 exact  (full-span gate fire 0/30)
+[inrange_heldout_templ] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[inrange_heldout_templ] HYB-DET: 0/30 exact  (full-span gate fire 0/30)
+[inrange_heldout_templ] HYB-LIVE: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_heldout_templ] PLAIN: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_heldout_templ] HYB-DET: 0/30 exact  (full-span gate fire 0/30)
+[extrap20_heldout_templ] HYB-LIVE: 0/30 exact  (full-span gate fire 0/30)
+
+===== VERDICT =====
+{
+  "c1_exact_inrange": false,
+  "c2_exact_extrap": false,
+  "c3_plain_fails": true,
+  "c4_no_prose_tax": false,
+  "tax96": 0.024465345683850614,
+  "tax192": -0.061459345792600484,
+  "live_minus_det_ce192": -0.015629592016729532,
+  "live_minus_det_ce96": 0.0014494548596835077,
+  "CERTIFIED": false
+}
+[done] wall=330s peak_ram=774.4MB

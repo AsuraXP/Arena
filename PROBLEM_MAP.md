@@ -120,3 +120,9 @@ All 12 map problems resolved or explicitly scoped out (honesty clause).
 Manuscript: PAPER_ARC2.md. Successors named: real-text hybrid trial, GPU-scale
 LM-integrated hybrid (operator protocol), multi-pass organs for new algorithm
 classes (P4 open-ended).
+
+## ARC-3 CYCLE 1 (real-text hybrid trial, successor i) — CLOSED (partial cert)
+MOUNT exactness 358/360 vs PLAIN 0/360 (3 seeds) on real English; gate FP <=0.002.
+Certified: architecture works on real text at sandbox scale. Falsified: zero-tax
+(real small tax ~2% CE quantified); decouple not replicated at this scale. Open:
+cue-general routing (unseen templates 0/30), operand parsing, GPU-scale protocol.
