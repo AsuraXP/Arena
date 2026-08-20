@@ -16,3 +16,9 @@ host. **Status: CLOSED at cycle 7 — machine 29/29 vs frontier 8/19, 7/18.**
 | `t*.py`, `phase*.py`, `cycle7*.py` | one seeded self-contained script per cycle |
 
 Reproduce any cycle: `python3 <script>.py` (torch CPU + numpy only).
+
+## ARC-3 (successor program, opened)
+- **C1 real-text hybrid trial** — `cycle8_realtxt.py` (+ `corpus/` tinyshakespeare
+  112KB slice): certified add-organ + gate mounted in a 573k-param transformer
+  trained on real English. MOUNT 358/360 exact vs PLAIN 0/360 (3 seeds), gate
+  FP <=0.002, small real prose tax (~2% CE) honestly quantified. Details: log.md.

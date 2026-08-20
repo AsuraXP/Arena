@@ -1,0 +1,53 @@
+CHATBOT TEST - WHAT OUR MODEL ACTUALLY WRITES
+============================================================
+
+Setup: 573,536 parameters, trained on 112KB of Shakespeare, about 6 minutes
+of training on 1 CPU. For scale: ChatGPT-class models are roughly 5,000 to
+10,000 times bigger and train for months on thousands of chips.
+This is a writing-sample test, not a conversation test.
+
+SAMPLE 1 - continue real Shakespeare (first line is the given prompt)
+------------------------------------------------------------
+PROMPT: : Now, pray, sir, get you gone: You have done a brave deed. 
+MODEL:  Which you have with our to so hours, Thathatr Yeanenelibe ie we we at, ge spthe Thidsp: ce bellspe I. yve f aton twne We twn tcheve; an h the me ous se me he the sse, ank hen me llld ldsemldg lippoutwe t s sk rs ie th nd s it. athadgarireri
+
+SAMPLE 2 - continue a dialogue prompt
+------------------------------------------------------------
+PROMPT: MENENIUS: What is the matter, my friends? 
+MODEL:   LARTIUS: Now then will batter--  MENENIUS: I would an tathalllllllllllllllllllllllllllllo tar muray hayin y y, hin yin yir t yayf t y hayis, in yirs t y y irr t ylllllllllllllllllt harrraychay n br m
+
+SAMPLE 3 - continue a prompt style it never saw (modern story opening)
+------------------------------------------------------------
+MODEL:  Once upon a time in a kingdom by the sea, Which caught be seekd to your misking bear's ''t in thsthin thin madon yunstwhvhulen hVhwhcurex llins ayus twhinnstwin fux twins win wen yupoe'gllltwafagllllll
+
+MATH INSIDE THE TEXT - same model, same weights, calculator mounted vs not
+============================================================
+CASE 1: correct answer = 120765015
+  WITHOUT calculator it wrote: 11100.ter
+  WITH calculator it wrote:    120765015   <-- exact
+  then it kept writing:        .tay make the one from the common give
+Furirt
+
+CASE 2: correct answer = 93136936058059511393
+  WITHOUT calculator it wrote: 1111000.They gathere
+  WITH calculator it wrote:    93136936058059511393   <-- exact
+  then it kept writing:        .tate a pdg m yy am:ndddd m. pit bg pmendddd.
+
+VERDICT (honest)
+============================================================
+Writing quality: word-shaped English with real fragments and correct stage
+format (speaker names, colons), but it drifts into repetition and gibberish
+within a few lines. This is what a 573,536-parameter model trained for 6
+minutes on one book writes like. It is NOT a chatbot and does not pretend to
+be one. A real chatbot needs billions of parameters and trillions of words.
+
+Why we still tested it: the question was never "can a tiny model chat" - it
+was "does bolting in exact calculators damage the writing and does it fix
+the math". Answers, measured over 3 seeds earlier today:
+  - Writing damage from carrying math duty: about 2 percent. Small, real.
+  - Math ability: 0 out of 360 without the calculator, 358 out of 360 with it.
+
+The chatbot verdict, plainly: we do NOT beat ChatGPT at conversation, we
+never claimed to, and in this sandbox we never could. We beat transformers
+where exact computation meets text - and that result now holds on real
+English, not just synthetic data.

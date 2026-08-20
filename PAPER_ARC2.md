@@ -144,7 +144,7 @@ training cost is under ten CPU-minutes.
 
 ARC-2 closes at cycle 7 with the charter's victory condition met on both sides
 (machine 29/29; frontier measured by operator) and P11 closed (four-operation
-certified hybrid). Successor candidates named by the record: (i) real-text trial of
+certified hybrid). Successor candidates named by the record: (i) real-text trial of [EXECUTED in-sandbox as ARC-3 C1 after closure: see log.md — MOUNT 358/360 vs PLAIN 0/360, 3 seeds; small real prose tax quantified; cue-general routing open.]
 the hybrid on natural corpora (mirroring ssr_lab cycle 41); (ii) nesting the hybrid
 inside an LM proper at scale (operator-executed GPU protocol); (iii) multi-pass
 organs beyond arithmetic (P4 open-ended: learned pass-programs for new algorithm
