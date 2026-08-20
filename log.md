@@ -131,3 +131,29 @@ learned dispatch, contextual output, hard inference).
   krgate3_s0.pt. Suite implication: T1+T3+T5+T7-style spans all routable in one host.
 - Remaining for P11 closure: big/big division via IFT compare-subtract (stretch),
   HOST-M text-CE drift fix (M4), multi-seed host, real-text corpus trial.
+## Cycle 7 M4: transcript elision (CERTIFIED) + big/big division encoding (oracle OK).
+- M4a: mount change — after organ self-termination, the host's context view replaces the
+  answer region with ONE [ANS] marker (router+organs still see the full stream).
+  Certified: hybrid exact 100% at all widths; elision NEVER costs fluency (elided host
+  CE 3.17 vs TF-FULL 3.45 and masked-host 3.36 at w=150; <= both arms at w>=40);
+  context 320 -> 168 tokens at w=150 (~48% KV savings). Certified elision = lossless
+  by construction (organ-owned correctness), unlike heuristic KV-compaction prior art.
+  Note: M3's larger HOST-M drift (to 4.3) involved the 3-organ/gate-head configuration;
+  in the clean M4a isolation masked-host tracks TF within 0.09 — confound logged open.
+- M4b Phase A (big/big division via IFT compare-subtract): reference encoding semantics
+  — tape [MODE][CNT][SH][SL][PAIRs LSB-first], repeated subtract-with-rollback (two's-
+  complement garbage repaired by add-back pass), per-round counter = quotient digit,
+  alignment-shift register s = lenN-lenD down to 0, remainder emitted at s<0.
+  ORACLE: 511/511 exact incl. edge cases (D=1, D=N, trailing zeros, 40/20, 40/35).
+  Passes to fixpoint: ~3.4 per quotient digit (e.g. 40/20 digits: mean 134) — O(N^2)
+  work via O(N) passes, same class as T3 multiplication.
+  Defect caught by oracle gate at first run: decode allowed remainder digits to pollute
+  the quotient via a type-only filter (7/3 -> '210'); fixed by marker-split decode.
+- Design note for Phase B (learning): pair-shift writes need new_d_i = old_d_{i+1}
+  (lookahead) -> use T3's aprev one-step-lag + ENDT flush (L-DETERMINISM applied at
+  design time). Registers: (mode, cnt, s_hi, s_lo) as tape-resident tokens = KR
+  (token x mode) contextual dispatch, exactly the ISA-PRAM form.
+- Next (M5): Phase B — learn the big/big transducer tables (direct supervision,
+  <=8-digit N / <=4-digit D), certify at 40/20+, mount as 4th organ (DBIG span syntax)
+  behind the router; M3 confound control (gate-head on/off).
+- Wall: M4a 325s, M4b 0.2s. Peak RAM 766MB. Restarts: ZERO (seed 0 first try).

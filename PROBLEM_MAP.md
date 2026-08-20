@@ -84,3 +84,9 @@ exact at every width (div/add to 19x, mul to 40x40 judge scale), plain host 0%,
 neural-probe gate 0% at >=2x. Certified router: 83695/83695, 3 seeds zero-error.
 Open: big/big division via IFT (stretch), HOST-M text-CE drift at long contexts (M4),
 real-text corpus trial.
+
+## CYCLE-7 STATUS UPDATE (P11 milestone 4)
+M4a CLOSED: transcript elision certified (never-cost fluency, ~48% context savings,
+hybrid 100%). M4b Phase A CLOSED: big/big division compare-subtract encoding oracle
+511/511 (O(N^2) work via O(N) passes). Open: M4b Phase B (learn tables + mount as 4th
+organ), M3 gate-head drift confound control, multi-seed host, real-text trial.
