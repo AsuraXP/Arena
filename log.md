@@ -213,3 +213,13 @@ learned dispatch, contextual output, hard inference).
 - Remaining closure items: host multi-seed sweep (exactness host-independent by
   construction — router-owned spans; sweep for the record), real-text trial,
   ARC-2 manuscript.
+## Cycle 7 control B: host multi-seed sweep — CERTIFIED (P9 closed for the hybrid).
+- Frozen router (krgate4_s0.pt) + frozen organs; hosts trained at seeds 1,2 in the
+  ADOPTED config (detached gate head): div@150 = 100%, dbig 40x35 = 100% on both
+  seeds (seed 0 certified in M5b). Exactness host-independent, now verified
+  empirically (3/3 seeds), not just structurally.
+- Component seed ledger for the full hybrid stack: router 3 seeds zero-error ·
+  organs all certified (div remount 300/300, add 200/200, IFT 320/320, bigdiv
+  300/300) · host 3 seeds 100% exact · gate heads (neural control) excluded from
+  certification by design. Training restarts across the ENTIRE ARC-2 program: ZERO.
+- Remaining: ARC-2 manuscript (+ optional real-text trial).

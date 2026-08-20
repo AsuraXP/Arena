@@ -109,3 +109,7 @@ L-HEAD-DECOUPLE confirmed: M3's text-CE drift was caused solely by the jointly-
 trained gate head (JOIN 4.08 vs DET 2.65 == NOHD at 19x; all equal in-dist).
 Detached auxiliary heads are free. P11 controls remaining: host multi-seed sweep,
 real-text trial, manuscript.
+
+## CYCLE-7 CONTROL B (host multi-seed)
+Host seeds 1,2: 100% exact on div@150 and dbig 40x35 (3/3 with seed 0). P9 fully
+closed for the hybrid stack. Remaining: ARC-2 manuscript (+ optional real-text).
