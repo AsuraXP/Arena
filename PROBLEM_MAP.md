@@ -76,3 +76,11 @@ extent at length (75.9% acc @19x). M2 CLOSED: certified KR router (65230/65230, 
 (division + streaming adder) mounted marker-free; HY-KR 100% exact at 19x where plain
 host = 0% and neural-probe gate = 0% at >=5x. Remaining: multiplier organ mount (M3),
 big/big division via IFT, multi-seed host, real-text corpus trial.
+
+## CYCLE-7 STATUS UPDATE (P11 milestone 3)
+M3 CLOSED: ITERATED multiplication organ mounted behind certified KR router with
+two streaming organs — three-way dispatch (+,x,/) in ONE token host: HY-KR 100%
+exact at every width (div/add to 19x, mul to 40x40 judge scale), plain host 0%,
+neural-probe gate 0% at >=2x. Certified router: 83695/83695, 3 seeds zero-error.
+Open: big/big division via IFT (stretch), HOST-M text-CE drift at long contexts (M4),
+real-text corpus trial.

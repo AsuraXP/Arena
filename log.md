@@ -106,3 +106,28 @@ learned dispatch, contextual output, hard inference).
 - Next: M3 — mount multiplier organ (ift_t3.pt, iterated passes) for O(N^2)-work spans;
   big/big division via IFT compare-subtract (stretch); 4-op calculator = full T5-style
   dispatch inside a token host. Then P11 closes.
+## Cycle 7 M3: ITERATED organ mounted — three-organ dispatch CERTIFIED.
+- IFT multiplication organ (ift_t3.pt, trained <=6 digit operands in C3) remounted from
+  frozen tables: 320/320 exact across 1-50-digit operands incl. 20x 40x40 judge-scale
+  products. The organ's internal O(N)-pass fixed-point computation runs inside a
+  single-pass span surface behind the router.
+- KR gate extended to 7 states / 4 classes (text + {div,mul,add}-q/-ans): certified
+  83695/83695 routing decisions, seeds 0,1,2 zero-error, dual-table audit clean.
+- End-to-end: HY-KR = 100% exact on ALL THREE organs at every width —
+  div 8..150 (19x), add 8..150 (19x), mul 8..40 (5x, incl 40x40 products = judge
+  scale T3) — while plain host TF-FULL = 0% at every width including in-distribution.
+- Neural-probe control: 100% in-dist, 0% at >=2x operand width — three-way dispatch
+  breaks the probe even earlier than M2's two-way. Certified table router unaffected.
+- Honest negative: HOST-M text CE drifts up at long contexts (2.8 -> 4.0-4.5 vs
+  TF-FULL 2.5-3.0) when operand widths exceed training — the masked host's TEXT
+  quality suffers extrapolating over long span contexts even though hybrid ANSWER
+  exactness is unaffected (structural, organ-owned). Logged for M4: host context
+  curriculum or span-summarized context.
+- Defects found & fixed (caught by gates, zero training restarts): double-argmax on
+  already-hard M2 tables; sync()-after-answers cls overlength (caught by hardened
+  oracle instantly); seed-sweep variable shadowed an organ table (H2); make_eval cls
+  built from formula instead of segment lengths (assert caught).
+- Wall 564s, peak RAM 806MB (<2GB charter). Artifacts: cycle7c_multorgan.py,
+  krgate3_s0.pt. Suite implication: T1+T3+T5+T7-style spans all routable in one host.
+- Remaining for P11 closure: big/big division via IFT compare-subtract (stretch),
+  HOST-M text-CE drift fix (M4), multi-seed host, real-text corpus trial.
