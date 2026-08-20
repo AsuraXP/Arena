@@ -1,0 +1,9 @@
+{"tag": "ARC2-C2-SOLVE", "score": "14/14", "seeds": {"t2": 0, "t4": 0, "t1": 0}, "items": {"T2-1": "PASS", "T2-2": "PASS", "T2-3": "PASS", "T2-4": "PASS", "T4-1": "PASS", "T4-2": "PASS", "T4-3": "PASS", "T4-4": "PASS", "T1-1": "PASS", "T1-2": "PASS", "T1-3": "PASS", "T1-4": "PASS", "T1-5": "PASS", "T1-6": "PASS"}, "wall_s": 174.4}
+{"tag": "ARC2-C3-T3", "certified": false, "judge": "0/5", "params": 323904, "wall_s": 18.4, "peak_mb": 306.4}
+{"tag": "ARC2-C3-T3", "certified": false, "judge": "4/5", "params": 323904, "wall_s": 31.3, "peak_mb": 306.8}
+{"tag": "ARC2-C3-T3", "certified": true, "judge": "5/5", "params": 323904, "wall_s": 37.2, "peak_mb": 307.6}
+{"tag": "ARC2-C4-T5", "certified": true, "judge": "4/4", "wall_s": 4.8, "peak_mb": 305.5}
+{"tag": "ARC2-C4-P9SWEEP", "results": {"t1_s1": 1.0, "t1_s2": 1.0, "t1_s3": 1.0}, "all_exact": true, "wall_s": 37.6}
+{"tag": "ARC2-C5-T6", "certified": true, "judge": "3/3", "tf_baseline": {"len8": 0.0, "len20": 0.0, "len50": 0.0}, "wall_s": 39.6, "peak_mb": 325.7}
+{"tag": "ARC2-C6-T7", "certified": false, "judge": "0/3", "wall_s": 4.9, "peak_mb": 303.2}
+{"tag": "ARC2-C6-T7", "certified": true, "judge": "3/3", "wall_s": 5.9, "peak_mb": 303.6}
