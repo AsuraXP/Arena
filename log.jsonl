@@ -8,3 +8,4 @@
 {"tag": "ARC2-C6-T7", "certified": false, "judge": "0/3", "wall_s": 4.9, "peak_mb": 303.2}
 {"tag": "ARC2-C6-T7", "certified": true, "judge": "3/3", "wall_s": 5.9, "peak_mb": 303.6}
 {"tag": "ARC2-C6-T7", "certified": true, "judge": "3/3", "wall_s": 4.6, "peak_mb": 648.4}
+{"tag": "ARC2-FRONTIER-JUDGE", "models": ["gemini-3.1-pro", "gemini-3.5-flash-thinking"], "pro": {"exact": 8, "attempted": 19, "coverage": 29}, "flash": {"exact": 7, "attempted": 18, "coverage": 29}, "machine": "29/29"}
