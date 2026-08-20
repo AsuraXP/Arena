@@ -173,3 +173,25 @@ learned dispatch, contextual output, hard inference).
 - Artifacts: cycle7f_bigdiv_learn.py, bigdiv_s0.pt. Restarts: ZERO.
 - Next (M5b): mount as organ #4 (DSL2 span syntax, 9-state router), then M3 confound
   control + real-text trial -> P11 closure + ARC-2 manuscript.
+## Cycle 7 M5b: big/big division MOUNTED as organ #4 — FOUR-OPERATION hybrid CERTIFIED.
+- Span syntax [N][DSL2][D][EQ][q][rem][DEND] (in-band); organ = M5a learned tables,
+  self-terminating; router extended to 9 states / 6 classes — certified 78605/78605
+  (audit clean, seeds 0,1,2 zero-error, zero restarts).
+- End-to-end exact spans (greedy completion), trained operands <=8 digits:
+    div 8 & 150 (19x) · add 8 & 150 (19x) · mul 8 & 25 · DBIG 8x4, 20x10, 40x20, 40x35
+  HY-KR = 100% on ALL FOUR organs at ALL widths; TF-FULL host = 0% everywhere;
+  neural-probe gate collapses at length (70% -> 0% beyond 2-5x).
+- The 40x35 item is the heaviest single computation ever routed mid-stream in this
+  program: ~75 rounds x 3 pass types x 41-cell tapes, exact, behind a 9-state router.
+- Defect caught by P0 remount gate: M5a certification compared INTEGERS (leading
+  zeros invisible); token-level mount required strip-then-pad decode (alignment
+  overshoot emits legitimate leading zeros: 100/7 -> q-digits '014'). Certification
+  granularity matters: token-exact > int-exact.
+- P11 STATUS: SUBSTANTIVELY CLOSED. One token host + one certified table router +
+  five frozen certified organs (incl. iterated multiplication and learned big/big
+  division) = exact four-operation arithmetic mid-generation inside fluent text at
+  up to 19x training width, zero host arithmetic ability required, fluency parity,
+  certified elision available. Remaining controls: M3 gate-head confound (M4a
+  evidence already points to gate-head/multi-organ config), real-text trial,
+  multi-seed host, manuscript.
+- Wall 456s, peak RAM 804MB. Artifacts: cycle7g_dbigorgan.py, krgate4_s0.pt.

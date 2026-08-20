@@ -96,3 +96,10 @@ M5a CLOSED: big/big division learned per-pass transducers — 300/300 exact acro
 8/4..40/35 trained on <=8-digit rows (5.9s). The four-operation arithmetic set is now
 fully learnable-transducer-complete. Open: M5b mount as 4th organ, M3 confound
 control, real-text trial, manuscript.
+
+## CYCLE-7 STATUS UPDATE (P11 — SUBSTANTIVELY CLOSED)
+M5b CLOSED: big/big division mounted as organ #4. FOUR-OPERATION hybrid certified:
+one host, one 9-state certified router, HY-KR 100% exact on div/add/mul/dbig at every
+tested width (up to 19x train, incl 40-digit / 35-digit), TF host 0%, neural probe 0%.
+P11 remaining (controls only): gate-head confound, real-text trial, multi-seed host,
+ARC-2 manuscript.
