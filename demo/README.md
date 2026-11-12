@@ -75,3 +75,15 @@ character motion without either an agent writing animation code or a video model
 (this sandbox cannot reach facebook.com). It writes metadata/transcript to `analysis/`.
 Trigger it by editing `.fetch-video-trigger`. Artifacts are not downloadable from here —
 results are committed back to the branch instead.
+
+## 5. Watch it in the browser
+
+`demo/serve.py` is a small static server with HTTP Range support (so the video can seek):
+
+```
+cd demo && python3 serve.py     # http://localhost:8000
+```
+
+Pages: a player with a clickable shot list, live "current shot" readout, keyboard
+shortcuts (space = play/pause, ←/→ = ±5s). Shot timings come from `site/timeline.json`,
+which `build.py` writes on every render.

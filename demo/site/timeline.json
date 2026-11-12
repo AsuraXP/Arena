@@ -1,0 +1,134 @@
+{
+ "total": 56.76,
+ "cuts": 16,
+ "segments": [
+  {
+   "t0": 0.0,
+   "t1": 3.4,
+   "img": "shot1",
+   "cap": "3:00 AM",
+   "move": "in",
+   "style": "big"
+  },
+  {
+   "t0": 3.4,
+   "t1": 6.4,
+   "img": "shot2",
+   "cap": "Every window is dark. Except yours.",
+   "move": "out",
+   "style": "sub"
+  },
+  {
+   "t0": 6.4,
+   "t1": 8.8,
+   "img": "shot8",
+   "cap": "You close your eyes. Nothing happens.",
+   "move": "in",
+   "style": "sub"
+  },
+  {
+   "t0": 8.8,
+   "t1": 13.87,
+   "img": "shot6",
+   "cap": "Not tonight. Not ever.",
+   "move": "out",
+   "style": "sub"
+  },
+  {
+   "t0": 13.87,
+   "t1": 17.47,
+   "img": "shot3",
+   "cap": "Night one feels like a superpower.",
+   "move": "right",
+   "style": "sub"
+  },
+  {
+   "t0": 17.47,
+   "t1": 20.27,
+   "img": "shot9",
+   "cap": "Eight extra hours. Every night.",
+   "move": "in",
+   "style": "sub"
+  },
+  {
+   "t0": 20.27,
+   "t1": 23.39,
+   "img": "shot10",
+   "cap": "2,920 hours a year.",
+   "move": "left",
+   "style": "big"
+  },
+  {
+   "t0": 23.39,
+   "t1": 26.59,
+   "img": "shot2",
+   "cap": "But nobody warns you about this.",
+   "move": "in",
+   "style": "sub"
+  },
+  {
+   "t0": 26.59,
+   "t1": 28.99,
+   "img": "shot3",
+   "cap": "Sleep is not a pause.",
+   "move": "in",
+   "style": "big"
+  },
+  {
+   "t0": 28.99,
+   "t1": 35.21,
+   "img": "shot4",
+   "cap": "It is a cleaning crew.",
+   "move": "out",
+   "style": "big"
+  },
+  {
+   "t0": 35.21,
+   "t1": 38.41,
+   "img": "shot5",
+   "cap": "No sleep. No rinse.",
+   "move": "left",
+   "style": "sub"
+  },
+  {
+   "t0": 38.41,
+   "t1": 43.71,
+   "img": "shot5",
+   "cap": "17 hours awake = 0.5 BAC",
+   "move": "right",
+   "style": "sub"
+  },
+  {
+   "t0": 43.71,
+   "t1": 47.11,
+   "img": "shot8",
+   "cap": "Day 3. Micro-sleeping.",
+   "move": "in",
+   "style": "sub"
+  },
+  {
+   "t0": 47.11,
+   "t1": 49.71,
+   "img": "shot7",
+   "cap": "Two second blackouts.",
+   "move": "in",
+   "style": "big"
+  },
+  {
+   "t0": 49.71,
+   "t1": 52.55,
+   "img": "shot1",
+   "cap": "Waking dreams. It will not obey you.",
+   "move": "out",
+   "style": "sub"
+  },
+  {
+   "t0": 52.55,
+   "t1": 57.66,
+   "img": "shot6",
+   "cap": "How long could you last?",
+   "move": "out",
+   "style": "big"
+  }
+ ]
+}
