@@ -1,0 +1,13 @@
+{
+ "total": 8.0,
+ "shots": 1,
+ "segments": [
+  {
+   "scene": "street",
+   "t0": 0.0,
+   "t1": 8.0,
+   "cap": "Someone is waving at you.",
+   "style": "sub"
+  }
+ ]
+}

@@ -92,6 +92,7 @@
   <span>Version:</span>
   <a href="#" id="v1" class="on">1 · stills + camera</a>
   <a href="#" id="v2">2 · fully animated</a>
+  <a href="#" id="v3">3 · hero shot (craft)</a>
   <span class="sep"></span>
   <span>Get the file:</span>
   <a id="dlhd" href="/media/demo.mp4" download="what-if-demo-1080p.mp4">1080p</a>
@@ -203,7 +204,9 @@ const VERSIONS = {
   v1: { hd: '/media/demo.mp4', sd: '/site/demo-720.mp4',
         tl: '/site/timeline.json', name: '1080p', sname: '720p', tag: '1' },
   v2: { hd: '/media/demo2.mp4', sd: '/site/demo2-720.mp4',
-        tl: '/site/timeline2.json', name: 'v2-1080p', sname: 'v2-720p', tag: '2' }
+        tl: '/site/timeline2.json', name: 'v2-1080p', sname: 'v2-720p', tag: '2' },
+  v3: { hd: '/site/hero-shot.mp4', sd: '/site/hero-shot.mp4',
+        tl: '/site/timeline3.json', name: 'hero-1080p', sname: 'hero-1080p', tag: '3' }
 };
 let ver = 'v1', hd = false;
 const q = document.getElementById('q');
@@ -235,6 +238,7 @@ function loadVersion(v) {
   document.getElementById('dlsd').setAttribute('download', 'what-if-' + cfg.sname + '.mp4');
   document.getElementById('v1').classList.toggle('on', v === 'v1');
   document.getElementById('v2').classList.toggle('on', v === 'v2');
+  document.getElementById('v3').classList.toggle('on', v === 'v3');
   const t = 0;
   hd = false; q.classList.remove('on'); q.textContent = 'HD';
   v_el.src = cfg.sd; v_el.load();
@@ -257,6 +261,7 @@ function loadVersion(v) {
 const v_el = v;
 document.getElementById('v1').onclick = e => { e.preventDefault(); loadVersion('v1'); };
 document.getElementById('v2').onclick = e => { e.preventDefault(); loadVersion('v2'); };
+document.getElementById('v3').onclick = e => { e.preventDefault(); loadVersion('v3'); };
 document.getElementById('hdlink').onclick = e => { e.preventDefault(); q.click(); };
 document.addEventListener('keydown', e => {
   if (e.key === ' ') { e.preventDefault(); v.paused ? v.play() : v.pause(); }
