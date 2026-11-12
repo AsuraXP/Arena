@@ -58,6 +58,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             p = "/__health"
         elif p == "/media/demo.mp4":
             p = "/out.mp4"
+        elif p == "/media/demo2.mp4":
+            p = "/demo2.mp4"
+        elif p == "/media/poster2.jpg":
+            p = "/site/poster2.jpg"
         elif p == "/media/poster.jpg":
             p = "/site/poster.jpg"
         elif not p.startswith("/site/"):

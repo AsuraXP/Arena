@@ -1,0 +1,210 @@
+{
+ "total": 78.53000000000002,
+ "shots": 22,
+ "segments": [
+  {
+   "scene": "city",
+   "args": {
+    "stay_lit": false
+   },
+   "t0": 0.0,
+   "t1": 3.1,
+   "cap": "3:47 AM",
+   "style": "big"
+  },
+  {
+   "scene": "street",
+   "args": {},
+   "t0": 3.1,
+   "t1": 6.0,
+   "cap": "Every window in the city is dark.",
+   "style": "sub"
+  },
+  {
+   "scene": "street",
+   "args": {},
+   "t0": 6.0,
+   "t1": 10.99,
+   "cap": "Except two. Someone is waving.",
+   "style": "sub"
+  },
+  {
+   "scene": "bedroom",
+   "args": {},
+   "t0": 10.99,
+   "t1": 14.59,
+   "cap": "You close your eyes. Nothing.",
+   "style": "sub"
+  },
+  {
+   "scene": "bedroom",
+   "args": {},
+   "t0": 14.59,
+   "t1": 18.189999999999998,
+   "cap": "No yawn. No heavy eyelids.",
+   "style": "sub"
+  },
+  {
+   "scene": "city",
+   "args": {
+    "stay_lit": true
+   },
+   "t0": 18.189999999999998,
+   "t1": 24.189999999999998,
+   "cap": "Not that night. Not ever.",
+   "style": "big"
+  },
+  {
+   "scene": "room",
+   "args": {
+    "mode": "walk"
+   },
+   "t0": 24.189999999999998,
+   "t1": 28.389999999999997,
+   "cap": "Eight extra hours. Every night.",
+   "style": "sub"
+  },
+  {
+   "scene": "room",
+   "args": {
+    "mode": "sit"
+   },
+   "t0": 28.389999999999997,
+   "t1": 32.589999999999996,
+   "cap": "2,920 hours a year.",
+   "style": "big"
+  },
+  {
+   "scene": "room",
+   "args": {
+    "mode": "walk"
+   },
+   "t0": 32.589999999999996,
+   "t1": 37.67,
+   "cap": "Enough class time to learn Spanish",
+   "style": "sub"
+  },
+  {
+   "scene": "room",
+   "args": {
+    "mode": "sit"
+   },
+   "t0": 37.67,
+   "t1": 40.47,
+   "cap": "You master the guitar.",
+   "style": "sub"
+  },
+  {
+   "scene": "bedroom",
+   "args": {},
+   "t0": 40.47,
+   "t1": 44.45,
+   "cap": "But here's the part nobody warns you about.",
+   "style": "sub"
+  },
+  {
+   "scene": "city",
+   "args": {
+    "stay_lit": false,
+    "ripple_from": 0.35
+   },
+   "t0": 44.45,
+   "t1": 48.85,
+   "cap": "The world shuts down without you.",
+   "style": "sub"
+  },
+  {
+   "scene": "city",
+   "args": {
+    "stay_lit": false,
+    "ripple_from": 0.2
+   },
+   "t0": 48.85,
+   "t1": 51.85,
+   "cap": "One window at a time.",
+   "style": "big"
+  },
+  {
+   "scene": "ocean",
+   "args": {
+    "jellyfish": false
+   },
+   "t0": 51.85,
+   "t1": 55.25,
+   "cap": "Sleep is 450 million years old.",
+   "style": "sub"
+  },
+  {
+   "scene": "ocean",
+   "args": {
+    "jellyfish": true
+   },
+   "t0": 55.25,
+   "t1": 57.650000000000006,
+   "cap": "Even jellyfish do it.",
+   "style": "big"
+  },
+  {
+   "scene": "ocean",
+   "args": {
+    "jellyfish": true
+   },
+   "t0": 57.650000000000006,
+   "t1": 59.68000000000001,
+   "cap": "And they don't have a brain.",
+   "style": "sub"
+  },
+  {
+   "scene": "lab",
+   "args": {},
+   "t0": 59.68000000000001,
+   "t1": 63.080000000000005,
+   "cap": "1964. The most famous attempt.",
+   "style": "sub"
+  },
+  {
+   "scene": "lab",
+   "args": {},
+   "t0": 63.080000000000005,
+   "t1": 65.88000000000001,
+   "cap": "Eleven days awake.",
+   "style": "big"
+  },
+  {
+   "scene": "street",
+   "args": {},
+   "t0": 65.88000000000001,
+   "t1": 68.68,
+   "cap": "You should be the only one.",
+   "style": "sub"
+  },
+  {
+   "scene": "street",
+   "args": {},
+   "t0": 68.68,
+   "t1": 71.88000000000001,
+   "cap": "You wave back.",
+   "style": "sub"
+  },
+  {
+   "scene": "street",
+   "args": {
+    "blackout": true
+   },
+   "t0": 71.88000000000001,
+   "t1": 75.08000000000001,
+   "cap": "And the light goes out.",
+   "style": "sub"
+  },
+  {
+   "scene": "city",
+   "args": {
+    "stay_lit": true
+   },
+   "t0": 75.08000000000001,
+   "t1": 79.33000000000001,
+   "cap": "How long could you last?",
+   "style": "big"
+  }
+ ]
+}

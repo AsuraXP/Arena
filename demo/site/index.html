@@ -27,6 +27,8 @@
   .dlbar a{color:var(--ink);text-decoration:none;border:1px solid #263041;background:#131b28;
     padding:7px 12px;border-radius:8px;font-weight:600;transition:.15s}
   .dlbar a:hover{border-color:#3c4a63;background:#1a2433;color:#fff}
+  .dlbar a.on{border-color:rgba(95,208,224,.5);color:var(--cyan);background:#12212b}
+  .dlbar .sep{width:1px;height:18px;background:var(--line);margin:0 2px}
   main{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0}
   @media(max-width:1000px){main{grid-template-columns:minmax(0,1fr)}}
 
@@ -87,10 +89,13 @@
 </header>
 
 <div class="dlbar">
+  <span>Version:</span>
+  <a href="#" id="v1" class="on">1 · stills + camera</a>
+  <a href="#" id="v2">2 · fully animated</a>
+  <span class="sep"></span>
   <span>Get the file:</span>
-  <a href="/media/demo.mp4" download="what-if-demo-1080p.mp4">1080p · 13 MB</a>
-  <a href="/site/demo-720.mp4" download="what-if-demo-720p.mp4">720p · 3.6 MB</a>
-  <a href="/site/storyboard.jpg" download="storyboard.jpg">storyboard</a>
+  <a id="dlhd" href="/media/demo.mp4" download="what-if-demo-1080p.mp4">1080p</a>
+  <a id="dlsd" href="/site/demo-720.mp4" download="what-if-demo-720p.mp4">720p</a>
 </div>
 
 <main>
@@ -194,7 +199,13 @@ v.addEventListener('ended', () => bp.classList.remove('hide'));
 v.addEventListener('play', () => bp.classList.add('hide'));
 v.addEventListener('pause', () => { if (v.currentTime === 0) bp.classList.remove('hide'); });
 bp.onclick = () => { v.play(); };
-let hd = false;
+const VERSIONS = {
+  v1: { hd: '/media/demo.mp4', sd: '/site/demo-720.mp4',
+        tl: '/site/timeline.json', name: '1080p', sname: '720p', tag: '1' },
+  v2: { hd: '/media/demo2.mp4', sd: '/site/demo2-720.mp4',
+        tl: '/site/timeline2.json', name: 'v2-1080p', sname: 'v2-720p', tag: '2' }
+};
+let ver = 'v1', hd = false;
 const q = document.getElementById('q');
 q.onclick = () => {
   const t = v.currentTime, wasPlaying = !v.paused;
@@ -215,6 +226,37 @@ document.getElementById('mute').onclick = e => {
   e.target.classList.toggle('on', v.muted);
   e.target.textContent = v.muted ? 'Unmute' : 'Mute';
 };
+function loadVersion(v) {
+  ver = v;
+  const cfg = VERSIONS[v];
+  document.getElementById('dlhd').href = cfg.hd;
+  document.getElementById('dlsd').href = cfg.sd;
+  document.getElementById('dlhd').setAttribute('download', 'what-if-' + cfg.name + '.mp4');
+  document.getElementById('dlsd').setAttribute('download', 'what-if-' + cfg.sname + '.mp4');
+  document.getElementById('v1').classList.toggle('on', v === 'v1');
+  document.getElementById('v2').classList.toggle('on', v === 'v2');
+  const t = 0;
+  hd = false; q.classList.remove('on'); q.textContent = 'HD';
+  v_el.src = cfg.sd; v_el.load();
+  listEl.innerHTML = '';
+  fetch(cfg.tl).then(r => r.json()).catch(() => null).then(tl => {
+    if (!tl || !tl.segments) { nowcap.textContent = 'Shot list unavailable'; return; }
+    segs = tl.segments; total = tl.total;
+    segs.forEach((sg, i) => {
+      const row = document.createElement('div');
+      row.className = 'row';
+      row.innerHTML = `<div class="n">${String(i+1).padStart(2,'0')}</div>
+        <div><div class="cap">${sg.cap || sg.scene}</div>
+        <div class="tc">${fmt(sg.t0)} – ${fmt(sg.t1)} · ${sg.scene || sg.move || ''}</div></div>`;
+      row.onclick = () => { v_el.currentTime = sg.t0 + 0.01; v_el.play(); };
+      listEl.appendChild(row);
+    });
+    paint(0);
+  });
+}
+const v_el = v;
+document.getElementById('v1').onclick = e => { e.preventDefault(); loadVersion('v1'); };
+document.getElementById('v2').onclick = e => { e.preventDefault(); loadVersion('v2'); };
 document.getElementById('hdlink').onclick = e => { e.preventDefault(); q.click(); };
 document.addEventListener('keydown', e => {
   if (e.key === ' ') { e.preventDefault(); v.paused ? v.play() : v.pause(); }
