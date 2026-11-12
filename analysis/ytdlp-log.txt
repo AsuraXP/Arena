@@ -1,0 +1,44 @@
+Target: https://www.facebook.com/share/v/1JytnVSwhA/
+[generic] Extracting URL: https://www.facebook.com/share/v/1JytnVSwhA/
+[generic] 1JytnVSwhA: Downloading webpage
+[redirect] Following redirect to https://www.facebook.com/reel/3326736054182362/?rdid=r1xbWrVqW6qYB4UF&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F1JytnVSwhA%2F
+[facebook:reel] Extracting URL: https://www.facebook.com/reel/3326736054182362/?rdid=r1xbWrVqW6qYB4UF&share_url=https%3A%2F%2Fwww...%2Fv%2F1JytnVSwhA%2F
+[facebook] Extracting URL: https://m.facebook.com/watch/?v=3326736054182362&_rdr
+[facebook] 3326736054182362: Downloading webpage
+[info] 3326736054182362: Downloading 1 format(s): 29427489870214782v+29415446208085815a
+[info] There are no subtitles for the requested languages
+[info] Writing video metadata as JSON to: out/video.info.json
+[download] Destination: out/video.f29427489870214782v.mp4
+[download]   0.0% of   72.85MiB at  Unknown B/s ETA Unknown[download]   0.0% of   72.85MiB at    2.61MiB/s ETA 00:28  [download]   0.0% of   72.85MiB at    4.89MiB/s ETA 00:14[download]   0.0% of   72.85MiB at    8.30MiB/s ETA 00:08[download]   0.0% of   72.85MiB at   14.63MiB/s ETA 00:04[download]   0.1% of   72.85MiB at   17.41MiB/s ETA 00:04[download]   0.2% of   72.85MiB at   28.08MiB/s ETA 00:02[download]   0.3% of   72.85MiB at   37.49MiB/s ETA 00:01[download]   0.7% of   72.85MiB at   56.70MiB/s ETA 00:01[download]   1.4% of   72.85MiB at   83.22MiB/s ETA 00:00[download]   2.7% of   72.85MiB at  127.50MiB/s ETA 00:00[download]   5.5% of   72.85MiB at  181.00MiB/s ETA 00:00[download]  11.0% of   72.85MiB at  200.16MiB/s ETA 00:00[download]  16.5% of   72.85MiB at  202.54MiB/s ETA 00:00[download]  22.0% of   72.85MiB at  198.54MiB/s ETA 00:00[download]  27.5% of   72.85MiB at  196.76MiB/s ETA 00:00[download]  32.9% of   72.85MiB at  189.61MiB/s ETA 00:00[download]  38.4% of   72.85MiB at  190.02MiB/s ETA 00:00[download]  43.9% of   72.85MiB at  191.58MiB/s ETA 00:00[download]  49.4% of   72.85MiB at  190.85MiB/s ETA 00:00[download]  54.9% of   72.85MiB at  185.45MiB/s ETA 00:00[download]  60.4% of   72.85MiB at  186.15MiB/s ETA 00:00[download]  65.9% of   72.85MiB at  187.01MiB/s ETA 00:00[download]  71.4% of   72.85MiB at  187.10MiB/s ETA 00:00[download]  76.9% of   72.85MiB at  185.05MiB/s ETA 00:00[download]  82.4% of   72.85MiB at  185.87MiB/s ETA 00:00[download]  87.8% of   72.85MiB at  187.94MiB/s ETA 00:00[download]  93.3% of   72.85MiB at  188.42MiB/s ETA 00:00[download]  98.8% of   72.85MiB at  189.78MiB/s ETA 00:00[download] 100.0% of   72.85MiB at  190.12MiB/s ETA 00:00[download] 100% of   72.85MiB in 00:00:00 at 172.03MiB/s 
+[download] Destination: out/video.f29415446208085815a.m4a
+[download]   0.0% of    7.62MiB at  Unknown B/s ETA Unknown[download]   0.0% of    7.62MiB at  Unknown B/s ETA Unknown[download]   0.1% of    7.62MiB at    5.86MiB/s ETA 00:01  [download]   0.2% of    7.62MiB at   10.23MiB/s ETA 00:00[download]   0.4% of    7.62MiB at   17.31MiB/s ETA 00:00[download]   0.8% of    7.62MiB at   18.56MiB/s ETA 00:00[download]   1.6% of    7.62MiB at   22.25MiB/s ETA 00:00[download]   3.3% of    7.62MiB at   33.81MiB/s ETA 00:00[download]   6.5% of    7.62MiB at   18.38MiB/s ETA 00:00[download]  13.1% of    7.62MiB at   26.31MiB/s ETA 00:00[download]  26.2% of    7.62MiB at   37.13MiB/s ETA 00:00[download]  52.5% of    7.62MiB at   47.71MiB/s ETA 00:00[download] 100.0% of    7.62MiB at   54.84MiB/s ETA 00:00[download] 100% of    7.62MiB in 00:00:00 at 46.73MiB/s  
+[Merger] Merging formats into "out/video.mp4"
+Deleting original file out/video.f29415446208085815a.m4a (pass -k to keep)
+Deleting original file out/video.f29427489870214782v.mp4 (pass -k to keep)
+=== exit:0 ===
+total 82676
+drwxr-xr-x 2 runner runner     4096 Nov 12 13:03 .
+drwxr-xr-x 5 runner runner     4096 Nov 12 13:03 ..
+-rw-r--r-- 1 runner runner     3778 Nov 12 13:03 log.txt
+-rw-r--r-- 1 runner runner    16335 Nov 12 13:03 video.info.json
+-rw-r--r-- 1 runner runner 84630080 Nov 12 13:03 video.mp4
+=== page scrape ===
+http:400 size:1542
+--- title/description ---
+=== out/video.mp4 ===
+codec_name=av1
+codec_type=video
+width=2560
+height=1440
+codec_name=aac
+codec_type=audio
+duration=892.203991
+size=84630080
+total 82740
+drwxr-xr-x 2 runner runner     4096 Nov 12 13:03 .
+drwxr-xr-x 5 runner runner     4096 Nov 12 13:03 ..
+-rw-r--r-- 1 runner runner    54318 Nov 12 13:03 contact_01.jpg
+-rw-r--r-- 1 runner runner     4282 Nov 12 13:03 log.txt
+-rw-r--r-- 1 runner runner     1542 Nov 12 13:03 page.html
+-rw-r--r-- 1 runner runner    16335 Nov 12 13:03 video.info.json
+-rw-r--r-- 1 runner runner 84630080 Nov 12 13:03 video.mp4
