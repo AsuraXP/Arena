@@ -87,3 +87,8 @@ cd demo && python3 serve.py     # http://localhost:8000
 Pages: a player with a clickable shot list, live "current shot" readout, keyboard
 shortcuts (space = play/pause, ←/→ = ±5s). Shot timings come from `site/timeline.json`,
 which `build.py` writes on every render.
+
+The page loads a 3.6 MB 720p proxy by default (`site/demo-720.mp4`) so it starts fast
+through the preview proxy; the **HD** button switches to the full 1080p file at the same
+timestamp. Every cut is an H.264 keyframe, so scrubbing and shot-jumping are instant.
+`site/storyboard.jpg` is a 4x4 contact sheet of all 16 shots.

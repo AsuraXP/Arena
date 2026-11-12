@@ -73,14 +73,14 @@
 <header>
   <h1>What-If Animation — $0 Demo</h1>
   <span class="pill">No ElevenLabs</span>
-  <span class="sub">57s · 1080p · 16 shots · AI art + AI voice + ffmpeg render</span>
+  <span class="sub">57s · 16 shots · AI art + AI voice + ffmpeg render · <a href="#" id="hdlink">HD available</a></span>
 </header>
 
 <main>
   <div class="stage">
     <div class="frame">
-      <video id="v" src="/media/demo.mp4" preload="auto" playsinline controls
-             poster="/media/poster.jpg"></video>
+      <video id="v" preload="metadata" playsinline controls poster="/media/poster.jpg"
+             src="/site/demo-720.mp4"></video>
       <button class="bigplay" id="bp" aria-label="Play">
         <span>
           <svg width="26" height="30" viewBox="0 0 26 30" fill="none">
@@ -95,6 +95,7 @@
       <button class="act" id="restart">↺ Restart</button>
       <button class="act" id="next">Next shot ›</button>
       <button class="act" id="mute">Mute</button>
+      <button class="act" id="q">HD</button>
       <span class="time" id="clock">0:00 / 0:57</span>
     </div>
 
@@ -135,7 +136,8 @@ const fmt = t => {
   return Math.floor(t/60) + ':' + String(Math.floor(t%60)).padStart(2,'0');
 };
 
-fetch('/site/timeline.json').then(r => r.json()).then(tl => {
+fetch('/site/timeline.json').then(r => r.json()).catch(() => null).then(tl => {
+  if (!tl || !tl.segments) { nowcap.textContent = 'Shot list unavailable'; return; }
   segs = tl.segments; total = tl.total;
   segs.forEach((s, i) => {
     const row = document.createElement('div');
@@ -173,12 +175,28 @@ v.addEventListener('ended', () => bp.classList.remove('hide'));
 v.addEventListener('play', () => bp.classList.add('hide'));
 v.addEventListener('pause', () => { if (v.currentTime === 0) bp.classList.remove('hide'); });
 bp.onclick = () => { v.play(); };
+let hd = false;
+const q = document.getElementById('q');
+q.onclick = () => {
+  const t = v.currentTime, wasPlaying = !v.paused;
+  hd = !hd;
+  q.classList.toggle('on', hd);
+  q.textContent = hd ? 'HD on' : 'HD';
+  v.src = hd ? '/media/demo.mp4' : '/site/demo-720.mp4';
+  v.load();
+  v.addEventListener('loadedmetadata', function once(){
+    v.removeEventListener('loadedmetadata', once);
+    v.currentTime = t;
+    if (wasPlaying) v.play();
+  });
+};
 document.getElementById('restart').onclick = () => { v.currentTime = 0; v.play(); };
 document.getElementById('mute').onclick = e => {
   v.muted = !v.muted;
   e.target.classList.toggle('on', v.muted);
   e.target.textContent = v.muted ? 'Unmute' : 'Mute';
 };
+document.getElementById('hdlink').onclick = e => { e.preventDefault(); q.click(); };
 document.addEventListener('keydown', e => {
   if (e.key === ' ') { e.preventDefault(); v.paused ? v.play() : v.pause(); }
   if (e.key === 'ArrowRight') { v.currentTime = Math.min(total, v.currentTime + 5); }
