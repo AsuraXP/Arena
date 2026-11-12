@@ -1,0 +1,176 @@
+[00:00] Now, in my last video, I showed you guys how to create this trending animation style
+[00:04] using Claude Code. And you guys loved it, but a lot of you came back saying Claude Code isn't
+[00:08] free, and asked me for a free alternative using a workflow that doesn't use Claude Code,
+[00:13] but a free agent that can pump out hundreds of these animations. So I went back and cracked it!
+[00:18] Now, for reference, this channel called Ifverse has pulled in over 9.2 million views in a
+[00:23] single month just by posting these simple animations. And in this video, I'm showing
+[00:27] you how to create them for literally $0. And to make it even crazier, we're putting this $0
+[00:33] agent head-to-head against Claude Code to see which one actually gives the best results.
+[00:37] Let's get started! Alright, guys, today we're testing whether a completely free AI model
+[00:41] can compete with Claude Code running on Opus 5.5 to create these cinematic 2D what-if animations.
+[00:47] And the crazy part? We're not using traditional image-to-video generators. We're using an AI
+[00:52] animation skill that handles everything. The script, voiceover, visuals, animation, sound effects,
+[00:58] and final rendering. All from one simple instruction, without manually animating a single scene.
+[01:03] And just to show you what's possible, check out what Opus Code created in just a few minutes.
+[01:08] A2. Your immune system measurably weakens. One week of short sleep around a vaccine.
+[01:13] And your body makes only half the antibodies it should.
+[01:16] 3. The brain starts micro-sleeping. 2 second blackouts. Waking dreams. It will not obey a wake.
+[01:24] A student once survived 11 days awake, doctors tracking him the whole way.
+[01:29] But in the Chicago sleep labs, rats kept awake didn't fade gently.
+[01:32] Their immune systems collapsed. Their skin broke down. Weeks. And they were gone.
+[01:37] Sleep isn't a habit. It's plumbing. You can skip the wash, but the pipes keep
+[01:40] filling. So, how long could you last? Right, pretty impressive for a $0 AI model.
+[01:46] Now if you're not familiar with OpenCode, it's a free open source alternative to Claude Code that
+[01:51] lets you use AI coding agents to automate workflows like this. And for this test, we're pairing it
+[01:56] with a free AI model so you don't need a paid Claude subscription. Now let's see how you
+[02:01] can recreate this yourself. First, I'll head over to opencode.ai slash download. This is
+[02:06] where we're going to download OpenCode desktop. As you can see, we've got versions for Mac,
+[02:11] Windows, and Linux. For me, I'm using a Mac, so I'll download the Mac version. Just select
+[02:16] whichever one matches your operating system. And while that's downloading, let's set up
+[02:21] the next tool we're going to need. Now before opening OpenCode, there's one account we need
+[02:25] to set up manually, and that's 11 labs. This is what our AI agent is going to use
+[02:29] to generate the narration and sound effects for our animation. So I'll open another tab,
+[02:34] head over to 11 labs, and sign in. For this demonstration, I'm using the free tier.
+[02:39] As you can see, it provides 10,000 monthly credits. And for this workflow, we're estimating around
+[02:45] 300 to 500 credits per video. So depending on your usage and the features available on your plan,
+[02:51] you can experiment with quite a few videos. Now the next thing we need is our 11 labs API key.
+[02:57] All right, now that we're inside 11 labs, I'll scroll down and click developer. Then I'll
+[03:02] head over to API keys. From here, I'll click create key. Now we can configure the permissions
+[03:08] our animation workflow needs. For this demonstration, I'm enabling access to the features the agent
+[03:13] will be using. Once that's done, I'll click create key. All right, now 11 labs has generated
+[03:19] our API key. And since this is a private credential, I'm going to blur it on screen.
+[03:24] I'll copy the key and keep it somewhere secure because we're going to use it when
+[03:27] setting up our animation workspace. Now let's head back to open code. The first thing we need to do
+[03:32] is create a workspace. And if you're wondering what that means, it's simply the folder where
+[03:37] our AI agent will save its files, install the required tools and build our animation.
+[03:42] So I'll click add project, then I'll select new folder. For the folder name, I'm going to use
+[03:47] what if. Now I'll select that folder. Open code is asking for permission to access it. So
+[03:53] I'll click allow. And just like that, our workspace is ready. Now here's where things get
+[03:58] interesting. Instead of manually opening a terminal and installing every dependency ourselves,
+[04:03] we're going to ask open code to handle the setup. So inside the chat box, I'll type set up the
+[04:08] what if animation skill, create the project structure, install all the dependencies and
+[04:13] configure my 11 labs API. Now I'll provide the API key through the setup process and hit enter.
+[04:19] For security, I'm keeping the actual key hidden from the recording. All right, now let's give open
+[04:24] code some time to work. Okay, as you can see, the agent has created our project folders, configured
+[04:30] the environment and set up our 11 labs connection. So we don't have to memorize any complicated
+[04:35] installation commands. Now that our workspace is ready, the next thing we need is our
+[04:40] animation skill. All right, now I'll click the plus button to attach our skill files. And as
+[04:45] you can see, I've already prepared a folder containing everything the agent needs. We've
+[04:49] got the main instruction manual templates, reference guides and helper scripts. So I'll
+[04:54] attach these files. Then I'll tell open code, here are the skill files, organize them into the correct
+[04:59] folders, set up the animation studio and install any missing rendering or audio tools. Now I'll hit send.
+[05:06] And as you can see, open code is reading through the files and installing the required
+[05:10] dependencies. You'll probably notice different installation messages and tests appearing on the
+[05:15] screen. That's normal. The agent is simply preparing the animation engine. All right, now
+[05:20] everything is installed and our studio is ready. Now before generating our video, there's one
+[05:25] important setting we need to change. I'll click choose model. And for this first test, I'm going
+[05:30] to select GLM 5.3 flash free. This is the free model we're going to use inside open code.
+[05:36] Now I'll also select the higher reasoning effort option available in this setup.
+[05:40] The idea is to give the model more room to work through the animation code before rendering.
+[05:45] All right, now our free model is selected. Let's see what it can create.
+[05:49] Now that everything is ready, I'm going to give the agent one simple instruction. I'll type,
+[05:54] load the what if animation skill and make an episode, what if you never needed to sleep?
+[05:59] Then I'll hit enter. And that's basically it. Now the AI is going to follow the eight
+[06:04] stage workflow we installed earlier. For this free model test, the complete process is
+[06:09] expected to take around 25 to 30 minutes. So I'll speed up the waiting time and show you
+[06:14] what's happening at each stage. All right, now open code has started working on our script.
+[06:19] As you can see, the skill is following our what if storytelling structure. It starts with a strong
+[06:24] hook, introduces the superpower, explores the consequences, brings in the scientific
+[06:29] explanation and ends with a cliffhanger. Now once the script is ready, it moves
+[06:33] straight into voiceover generation. All right, now we're in stage two. And as you can see,
+[06:38] the agent is calling 11 labs to generate our narration. Remember, we already connected our API
+[06:44] key earlier. So we don't have to manually copy the script into 11 labs. The agent handles that part
+[06:49] through the integration. And once our narration is ready, it moves into the next stage. Now stage
+[06:54] three is where the agent plans our shots. It maps out the wide shots, close ups and different
+[06:59] camera angles aiming for at least 27 cuts per minute. Then stages four and five handle the
+[07:04] actual scene construction and visual checks. This is where the AI writes the code for our
+[07:08] characters, backgrounds, lighting and environments. It also renders preview frames and checks them
+[07:13] against our 11 point visual checklist. So if a character is too dark or a scene isn't displaying
+[07:18] properly, the agent can revise the code before continuing. And that's one of the things I
+[07:23] really like about this workflow. All right, now we've reached the final three stages.
+[07:28] This is where the agent animates our characters and camera movements. Then it generates the
+[07:32] sound effects and background music mixes everything with our narration and prepares the final video.
+[07:37] And once that's complete, it exports our MP4. So let's give it a little more time.
+[07:42] All right, now our video has finished rendering. Let's check out what the free model created.
+[07:46] I'll open the generated video and hit play. No sleep. Not tonight. Not this week. Never.
+[07:53] Midnight. Everyone else is winding down and you're just getting started.
+[07:58] 2am. Home run level 23 and nothing even blurs.
+[08:02] 4am. You finish the book. Start a second one. The first week awake feels like a superpower.
+[08:09] Everyone swears you look fine. Here's the catch. Sleep isn't a pause. It's a cleaning crew.
+[08:16] While you dream, channels in your brain open up and wash the waste out.
+[08:19] Plack. Toxins. The debris linked to Alzheimer's.
+[08:24] No sleep. No rinse. And it shows fast. 17 hours awake and you drive like someone at 0.5
+[08:30] blood alcohol. 24 hours. Zucko 10. Above every legal limit on earth.
+[08:36] Day 2. Your immune system measurably weakens. One week of short sleep around a vaccine.
+[08:42] And your body makes only half the antibodies it should.
+[08:46] Day 3. The brain starts micro-sleeping. 2 second blackouts. Waking dreams.
+[08:54] It will not obey awake. A student once survived 11 days awake, doctors tracking him the whole way.
+[09:01] But in the Chicago sleep labs, rats kept awake didn't fade gently.
+[09:05] Their immune systems collapsed. Their skin broke down. Weeks. And they were gone.
+[09:11] Sleep isn't a habit. It's plumbing. You can skip the wash but the pipes keep filling. So
+[09:17] how long could you last?
+[09:22] Alright that's actually amazing. I mean think about it. We gave a free AI model one instruction
+[09:28] and it generated the script, voiceover, animation, sound effects, and final video.
+[09:34] And the character consistency looks pretty good too. Honestly for a free model I'm impressed.
+[09:39] But now comes the interesting part. What happens when we give this exact same workflow to Claude
+[09:44] Code running on opus 5.5? Let's find out. Alright now for round 2 I'm opening Claude Code. And this
+[09:50] time we're going to use opus 5.5. But here's the thing. We're not changing our animation
+[09:55] skill or rebuilding the workspace. We're using the exact same project folder we created earlier.
+[10:01] So I'll click add folder. Then I'll select our what if folder and click open.
+[10:06] Now Claude Code has access to the same skill files, rendering tools, and project setup.
+[10:11] That means we don't have to repeat the entire installation process.
+[10:14] Now to make this a fair comparison I'm going to use the same topic in workflow.
+[10:18] So I'll type make a what if episode, what if you never needed to sleep. Then I'll hit enter.
+[10:24] Now Claude is going to read our animation skill and follow the same 8 stage production
+[10:28] process. The main difference is the model handling the work. For this test we're
+[10:33] using opus 5.5 which we're expecting to handle the more complicated storytelling,
+[10:38] lighting, and scene construction. Now this generation may take around 30 to 40 minutes
+[10:43] and uses paid credits. So let's see what happens. Alright now Claude is asking for
+[10:48] permission to access some of the tools inside our workspace. I'll review the requests and
+[10:52] click allow where needed. And as you can see Claude has already started working. So let's
+[10:57] give it some time to finish the generation. Alright now our Claude Code generation is
+[11:02] ready. Let's check out what opus 5.5 creates. It's 3.47 a.m. Every window in the city is dark,
+[11:08] except two. One of them is yours. The person in the other one is waving at you.
+[11:14] What if you never needed to sleep? It starts on an ordinary Tuesday.
+[11:18] You switch off the light, close your eyes, and nothing. No yawn. No heavy eyelids.
+[11:24] Not that night. Not ever. At first it's amazing. Eight extra hours. Every night.
+[11:30] That's 2,920 hours a year. Enough class time to learn Spanish almost four times over.
+[11:36] You master the guitar. You finish every game you own. But here's the part nobody warns you about.
+[11:42] Every night the world shuts down without you. One window at a time. And that's strange because
+[11:47] sleep is ancient. At least 450 million years old. Even jellyfish do it. And they don't
+[11:52] have a brain. The most famous attempt to skip it in 1964 lasted 11 days.
+[11:58] So you should be the only one. Which brings us back to 347. You wave back.
+[12:03] And across the street the light goes out. What would you do with your first sleepless night?
+[12:09] Tell me in the comments.
+[12:11] Alright, wow. Not gonna lie. This looks really nice. The opening is strong,
+[12:16] the lighting looks cinematic, and I really like how the story ends with that mysterious
+[12:20] figure across the street. So now that we've seen both generations, let's compare them.
+[12:24] Alright, now it's time to put both results side by side. We've got Open Code running our free model,
+[12:29] and Claude Code running Opus 5.5. Both use the same animation skill and the same What If topic.
+[12:36] So let's see how they performed. First, storytelling and pacing. I think both models
+[12:41] did a good job following our What If structure. The stories are engaging,
+[12:45] and the pacing works well. But for me, Claude Opus 5.5 definitely had the stronger opening and
+[12:51] a much better cliffhanger. I mean, that mysterious figure waving from the opposite window was a
+[12:56] really nice touch. Now, moving on to the visuals. Honestly, Open Code did an impressive job for
+[13:02] a free model. The characters stayed consistent, and the animation was actually pretty clean.
+[13:07] But when you compare it with Claude Opus 5.5, you can notice the difference. The lighting,
+[13:12] background depth, camera movements, and character animation all feel more polished.
+[13:17] So for visual quality, I'm giving this one to Claude. And finally, sound design. Both workflows
+[13:23] used our 11 labs integration, so the narration and sound effects came out clearly. But I think Claude
+[13:28] handled the timing of the audio transitions a little better. The sounds matched the visual
+[13:32] moments more naturally. So overall, both models performed well, but Claude Opus 5.5 gave us
+[13:38] the better result in this particular test. Alright, so which one should you use? For me,
+[13:43] if you're just getting started and you don't want to spend money on a paid coding model,
+[13:47] Open Code with the free model is a good place to experiment. You can test different what-if ideas,
+[13:52] generate animations, and get familiar with the workflow. But if you're looking for more polished
+[13:57] visuals, stronger storytelling, and smoother animation, Claude Code with Opus 5.5 performed
+[14:03] better in today's comparison. And remember, both models used the same skill. So the difference
+[14:08] came from how each model handled the instructions. And just like that, we've tested two AI
+[14:13] coding agents using the same animation workflow. One free model, one paid model, and two complete
+[14:18] what-if animations generated from a simple instruction. No manually drawing every character,
+[14:23] no complicated keyframing, and no need to build everything inside After Effects or Premiere Pro.
+[14:28] Now, I'm curious. Which result do you think looked better? The free Open Code generation,
+[14:33] or Claude Code running Opus 5.5? Let me know in the comments, and also tell me which
+[14:38] what-if idea you're planning to try with this workflow. And if you enjoyed this video,
+[14:42] make sure to smash that like button, subscribe to the channel, and turn on the notification bell
+[14:46] for more AI animation workflows. Keep creating, and I'll catch you in the next one. Peace.
