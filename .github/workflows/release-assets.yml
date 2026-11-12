@@ -14,32 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: false
 
-      - name: Verify files present
-        run: |
-          ls -lh demo/out.mp4 demo/site/demo-720.mp4 demo/site/storyboard.jpg
-          file demo/out.mp4
+      - name: Show files
+        run: ls -lh demo/out.mp4 demo3/out.mp4 demo/site/demo-720.mp4 demo/site/demo2-720.mp4
 
       - name: Create or update release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release view demo-v1 >/dev/null 2>&1 || \
-            gh release create demo-v1 --title "What-If Animation Demo (no ElevenLabs)" \
-              --notes "57s demo built without ElevenLabs: AI voice + AI art + ffmpeg render.
+            gh release create demo-v1 --title "What-If Animation — no ElevenLabs" \
+              --notes "Same script as the tutorial's \"what if you never needed to sleep\" episode, built without ElevenLabs.
 
-          - \`what-if-demo-1080p.mp4\` - 13 MB, full quality
-          - \`what-if-demo-720p.mp4\` - 3.6 MB, light version
-          - \`storyboard.jpg\` - all 16 shots at a glance"
-          # asset names come from the file name, so stage them under the right names
-          cp demo/out.mp4 what-if-demo-1080p.mp4
-          cp demo/site/demo-720.mp4 what-if-demo-720p.mp4
-          for a in out.mp4 demo-720.mp4 storyboard.jpg; do
-            gh release delete-asset demo-v1 "$a" -y 2>/dev/null || true
+          **v1 — stills + camera moves** (AI art, Ken Burns motion)
+          **v2 — fully procedural** (every frame drawn in code: walk cycles, waving figure, pulsing jellyfish, parallax city)"
+          cp demo/out.mp4                       what-if-v1-1080p.mp4
+          cp demo/site/demo-720.mp4             what-if-v1-720p.mp4
+          cp demo3/out.mp4                      what-if-v2-animated-1080p.mp4
+          cp demo/site/demo2-720.mp4            what-if-v2-animated-720p.mp4
+          cp demo/site/storyboard.jpg           storyboard.jpg
+          for f in *.mp4 storyboard.jpg; do
+            gh release upload demo-v1 "$f" --clobber
           done
-          gh release upload demo-v1 what-if-demo-1080p.mp4 --clobber
-          gh release upload demo-v1 what-if-demo-720p.mp4 --clobber
-          gh release upload demo-v1 demo/site/storyboard.jpg --clobber
-          gh release view demo-v1 --json assets --jq '.assets[] | "\(.name)  \(.size) bytes"'
+          gh release view demo-v1 --json assets --jq '.assets[] | "\(.name)  \(.size)"'

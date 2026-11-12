@@ -1,0 +1,240 @@
+{
+ "total": 78.53000000000002,
+ "cuts": 26,
+ "segments": [
+  {
+   "kind": "still",
+   "src": "shot1",
+   "t0": 0.0,
+   "t1": 3.2,
+   "move": "in",
+   "cap": "3:47 AM",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "shot10",
+   "t0": 3.2,
+   "t1": 5.6,
+   "move": "out",
+   "cap": "Every window in the city is dark.",
+   "style": "sub"
+  },
+  {
+   "kind": "scene",
+   "src": "plaza",
+   "t0": 5.6,
+   "t1": 10.59,
+   "move": null,
+   "cap": "Except two. Someone is waving.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot2",
+   "t0": 10.59,
+   "t1": 14.79,
+   "move": "in",
+   "cap": "What if you never needed to sleep?",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "shot8",
+   "t0": 14.79,
+   "t1": 18.189999999999998,
+   "move": "in",
+   "cap": "You switch off the light.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot2",
+   "t0": 18.189999999999998,
+   "t1": 21.189999999999998,
+   "move": "out",
+   "cap": "You close your eyes. Nothing.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot2",
+   "t0": 21.189999999999998,
+   "t1": 22.79,
+   "move": "in",
+   "cap": "No yawn. No heavy eyelids.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot1",
+   "t0": 22.79,
+   "t1": 24.189999999999998,
+   "move": null,
+   "cap": "Not that night. Not ever.",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "guitar",
+   "t0": 24.189999999999998,
+   "t1": 28.089999999999996,
+   "move": "in",
+   "cap": "Eight extra hours. Every night.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot9",
+   "t0": 28.089999999999996,
+   "t1": 31.99,
+   "move": "in",
+   "cap": "2,920 hours a year.",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "guitar",
+   "t0": 31.99,
+   "t1": 35.39,
+   "move": "out",
+   "cap": "Enough class time to learn Spanish",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot9",
+   "t0": 35.39,
+   "t1": 37.67,
+   "move": "in",
+   "cap": "four times over.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "guitar",
+   "t0": 37.67,
+   "t1": 40.27,
+   "move": "right",
+   "cap": "You master the guitar.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot9",
+   "t0": 40.27,
+   "t1": 42.47,
+   "move": "left",
+   "cap": "You finish every game you own.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot3",
+   "t0": 42.47,
+   "t1": 44.45,
+   "move": "in",
+   "cap": "But here's the part nobody warns you about.",
+   "style": "sub"
+  },
+  {
+   "kind": "scene",
+   "src": "city",
+   "t0": 44.45,
+   "t1": 49.45,
+   "move": null,
+   "cap": "The world shuts down without you.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "ocean",
+   "t0": 49.45,
+   "t1": 52.25,
+   "move": "in",
+   "cap": "One window at a time.",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "jellyfish",
+   "t0": 52.25,
+   "t1": 55.85,
+   "move": "in",
+   "cap": "Sleep is 450 million years old.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "jellyfish",
+   "t0": 55.85,
+   "t1": 58.050000000000004,
+   "move": "out",
+   "cap": "Even jellyfish do it.",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "ocean",
+   "t0": 58.050000000000004,
+   "t1": 59.68000000000001,
+   "move": "in",
+   "cap": "And they don't have a brain.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "lab1964",
+   "t0": 59.68000000000001,
+   "t1": 63.28000000000001,
+   "move": "in",
+   "cap": "1964. The most famous attempt.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "lab1964",
+   "t0": 63.28000000000001,
+   "t1": 66.08000000000001,
+   "move": "out",
+   "cap": "Eleven days awake.",
+   "style": "big"
+  },
+  {
+   "kind": "still",
+   "src": "shot10",
+   "t0": 66.08000000000001,
+   "t1": 68.48,
+   "move": "left",
+   "cap": "You should be the only one.",
+   "style": "sub"
+  },
+  {
+   "kind": "scene",
+   "src": "plaza",
+   "t0": 68.48,
+   "t1": 72.08000000000001,
+   "move": null,
+   "cap": "You wave back.",
+   "style": "sub"
+  },
+  {
+   "kind": "scene",
+   "src": "lightout",
+   "t0": 72.08000000000001,
+   "t1": 75.48,
+   "move": null,
+   "cap": "The light goes out.",
+   "style": "sub"
+  },
+  {
+   "kind": "still",
+   "src": "shot6",
+   "t0": 75.48,
+   "t1": 79.33000000000001,
+   "move": "out",
+   "cap": "How long could you last?",
+   "style": "big"
+  }
+ ]
+}
