@@ -1,6 +1,9 @@
 name: fetch-video
 
 on:
+  push:
+    paths:
+      - '.fetch-video-trigger'
   workflow_dispatch:
     inputs:
       url:
