@@ -33,7 +33,13 @@ jobs:
           - \`what-if-demo-1080p.mp4\` - 13 MB, full quality
           - \`what-if-demo-720p.mp4\` - 3.6 MB, light version
           - \`storyboard.jpg\` - all 16 shots at a glance"
-          gh release upload demo-v1 demo/out.mp4#what-if-demo-1080p.mp4 --clobber
-          gh release upload demo-v1 demo/site/demo-720.mp4#what-if-demo-720p.mp4 --clobber
+          # asset names come from the file name, so stage them under the right names
+          cp demo/out.mp4 what-if-demo-1080p.mp4
+          cp demo/site/demo-720.mp4 what-if-demo-720p.mp4
+          for a in out.mp4 demo-720.mp4 storyboard.jpg; do
+            gh release delete-asset demo-v1 "$a" -y 2>/dev/null || true
+          done
+          gh release upload demo-v1 what-if-demo-1080p.mp4 --clobber
+          gh release upload demo-v1 what-if-demo-720p.mp4 --clobber
           gh release upload demo-v1 demo/site/storyboard.jpg --clobber
           gh release view demo-v1 --json assets --jq '.assets[] | "\(.name)  \(.size) bytes"'
