@@ -1,0 +1,39 @@
+name: release-assets
+
+on:
+  push:
+    paths:
+      - '.release-trigger'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Verify files present
+        run: |
+          ls -lh demo/out.mp4 demo/site/demo-720.mp4 demo/site/storyboard.jpg
+          file demo/out.mp4
+
+      - name: Create or update release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view demo-v1 >/dev/null 2>&1 || \
+            gh release create demo-v1 --title "What-If Animation Demo (no ElevenLabs)" \
+              --notes "57s demo built without ElevenLabs: AI voice + AI art + ffmpeg render.
+
+          - \`what-if-demo-1080p.mp4\` - 13 MB, full quality
+          - \`what-if-demo-720p.mp4\` - 3.6 MB, light version
+          - \`storyboard.jpg\` - all 16 shots at a glance"
+          gh release upload demo-v1 demo/out.mp4#what-if-demo-1080p.mp4 --clobber
+          gh release upload demo-v1 demo/site/demo-720.mp4#what-if-demo-720p.mp4 --clobber
+          gh release upload demo-v1 demo/site/storyboard.jpg --clobber
+          gh release view demo-v1 --json assets --jq '.assets[] | "\(.name)  \(.size) bytes"'
