@@ -1,0 +1,60 @@
+name: fetch-video
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Video URL to download'
+        required: true
+        default: 'https://www.facebook.com/share/v/1JytnVSwhA/'
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install yt-dlp + ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python -m pip install -q --upgrade yt-dlp
+          yt-dlp --version
+
+      - name: Download video
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          URL="${{ github.event.inputs.url }}"
+          echo "Target: $URL"
+          yt-dlp --no-playlist --write-info-json --write-subs --sub-langs all \
+                 -f "bv*+ba/b" --merge-output-format mp4 \
+                 -o "out/video.%(ext)s" "$URL" 2>&1 | tee out/log.txt
+          echo "=== files ==="; ls -la out/ || true
+
+      - name: Probe + extract previews
+        if: always()
+        run: |
+          mkdir -p out
+          for f in out/*.mp4 out/*.mkv out/*.webm; do
+            [ -e "$f" ] || continue
+            echo "--- $f"
+            ffprobe -v error -show_entries format=duration,size:stream=codec_type,width,height,codec_name -of default=noprint_wrappers=1 "$f" | tee -a out/probe.txt
+            ffmpeg -v error -i "$f" -vf "fps=1/5,scale=480:-1,tile=4x4" -frames:v 1 "out/contact_%02d.jpg" -y || true
+          done
+          ls -la out/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-${{ github.run_id }}
+          path: out/
+          retention-days: 3
+          if-no-files-found: warn
