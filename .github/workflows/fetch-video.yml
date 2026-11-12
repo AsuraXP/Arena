@@ -5,14 +5,9 @@ on:
     paths:
       - '.fetch-video-trigger'
   workflow_dispatch:
-    inputs:
-      url:
-        description: 'Video URL to download'
-        required: true
-        default: 'https://www.facebook.com/share/v/1JytnVSwhA/'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   fetch:
@@ -29,35 +24,60 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg
           python -m pip install -q --upgrade yt-dlp
-          yt-dlp --version
+          yt-dlp --version | sed 's/^/yt-dlp /'
 
       - name: Download video
         continue-on-error: true
         run: |
           mkdir -p out
-          URL="${{ github.event.inputs.url }}"
-          echo "Target: $URL"
+          URL=$(grep -o 'https://[^ ]*' .fetch-video-trigger | head -1)
+          echo "Target: $URL" | tee out/log.txt
           yt-dlp --no-playlist --write-info-json --write-subs --sub-langs all \
+                 --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36" \
                  -f "bv*+ba/b" --merge-output-format mp4 \
-                 -o "out/video.%(ext)s" "$URL" 2>&1 | tee out/log.txt
-          echo "=== files ==="; ls -la out/ || true
+                 -o "out/video.%(ext)s" "$URL" >> out/log.txt 2>&1
+          echo "=== exit:$? ===" >> out/log.txt
+          ls -la out/ >> out/log.txt
 
-      - name: Probe + extract previews
+      - name: Fallback page scrape
         if: always()
+        continue-on-error: true
         run: |
           mkdir -p out
-          for f in out/*.mp4 out/*.mkv out/*.webm; do
-            [ -e "$f" ] || continue
-            echo "--- $f"
-            ffprobe -v error -show_entries format=duration,size:stream=codec_type,width,height,codec_name -of default=noprint_wrappers=1 "$f" | tee -a out/probe.txt
-            ffmpeg -v error -i "$f" -vf "fps=1/5,scale=480:-1,tile=4x4" -frames:v 1 "out/contact_%02d.jpg" -y || true
-          done
-          ls -la out/
+          URL=$(grep -o 'https://[^ ]*' .fetch-video-trigger | head -1)
+          {
+            echo "=== page scrape ==="
+            curl -sL -m 45 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36" \
+              -H "Accept-Language: en-US,en;q=0.9" "$URL" -o out/page.html -w "http:%{http_code} size:%{size_download}\n"
+            echo "--- title/description ---"
+            grep -o '<meta property="og:[^>]*>' out/page.html | head -20
+            grep -o '"description":"[^"]*"' out/page.html | head -3
+            grep -o '"text":"[^"]*"' out/page.html | head -10
+          } >> out/log.txt 2>&1
 
-      - uses: actions/upload-artifact@v4
+      - name: Probe + extract frames
         if: always()
-        with:
-          name: video-${{ github.run_id }}
-          path: out/
-          retention-days: 3
-          if-no-files-found: warn
+        run: |
+          touch out/log.txt
+          for f in out/video.mp4 out/video.mkv out/video.webm; do
+            [ -e "$f" ] || continue
+            {
+              echo "=== $f ==="
+              ffprobe -v error -show_entries format=duration,size:stream=codec_type,width,height,codec_name -of default=noprint_wrappers=1 "$f"
+            } | tee -a out/log.txt
+            ffmpeg -v error -i "$f" -vf "fps=1/8,scale=420:-1,tile=3x3" -frames:v 1 out/contact_%02d.jpg -y || true
+          done
+          ls -la out/ | tee -a out/log.txt
+
+      - name: Push report back to branch
+        if: always()
+        run: |
+          mkdir -p analysis
+          cp out/log.txt analysis/ytdlp-log.txt
+          for j in out/contact_*.jpg; do [ -e "$j" ] && cp "$j" analysis/; done
+          git config user.name  "arena-agent"
+          git config user.email "agent@arena.local"
+          git add analysis
+          git diff --cached --quiet || git commit -m "ci: video analysis report [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}"
