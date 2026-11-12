@@ -33,6 +33,7 @@ jobs:
           cp demo3/out.mp4                      what-if-v2-animated-1080p.mp4
           cp demo/site/demo2-720.mp4            what-if-v2-animated-720p.mp4
           cp demo/site/storyboard.jpg           storyboard.jpg
+          cp demo4/hero-shot.mp4                what-if-v3-hero-shot.mp4
           for f in *.mp4 storyboard.jpg; do
             gh release upload demo-v1 "$f" --clobber
           done
