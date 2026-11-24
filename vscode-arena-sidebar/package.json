@@ -1,0 +1,72 @@
+{
+  "name": "arena-sidebar",
+  "displayName": "Arena Sidebar",
+  "description": "Open Arena.ai in a dedicated VS Code sidebar view.",
+  "version": "0.1.0",
+  "publisher": "local-dev",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onView:arena.sidebar"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "arena",
+          "title": "Arena",
+          "icon": "media/arena.svg"
+        }
+      ]
+    },
+    "views": {
+      "arena": [
+        {
+          "id": "arena.sidebar",
+          "name": "Arena Chat",
+          "type": "webview"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "arena.reload",
+        "title": "Arena: Reload Sidebar"
+      },
+      {
+        "command": "arena.openInBrowser",
+        "title": "Arena: Open Website in Browser"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "arena.reload",
+          "when": "view == arena.sidebar",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Arena Sidebar",
+      "properties": {
+        "arena.sidebar.url": {
+          "type": "string",
+          "default": "https://arena.ai",
+          "description": "HTTPS website URL displayed inside the Arena sidebar."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.3"
+  }
+}
